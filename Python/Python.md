@@ -502,7 +502,7 @@ Click ![](media/c005d91eb85d5c58566746609ab80254.png), the script starts running
 
 ![](media/ac688b44314f16001f3e2b9d0be8d895.png)
 
-### Project 3: 8\*8 Dot Matrix Display
+### Project 3: 8*8 Dot Matrix Display
 
  **1. Description：**
 
@@ -510,7 +510,7 @@ Composed of LED emitting tube diodes, the 8\*8 LED dot matrix are applied widely
 
  **2. Knowledge：**
 
-# Dot matrix
+ Dot matrix
 
 There are different types of matrices, including 4×4, 8×8 and 16×16 and etc. It contains 64 LEDs.
 
@@ -528,17 +528,17 @@ The definition inner pins are shown below:
 
 For instance, to light up the LED on row 1 and column 1, you should increase the voltage of pin 9 and reduce the voltage of pin 13.
 
-# **HT16K33 8X8 Dot Matrix**
+ **HT16K33 8X8 Dot Matrix**
 
 The HT16K33 is a memory mapping and multi-purpose LED controller driver. The max. Display segment numbers in the device is 128 patterns (16 segments and 8 commons) with a 13\*3 (MAX.) matrix key scan circuit. The software configuration features of the HT16K33 makes it suitable for multiple LED applications including LED modules and display subsystems. The HT16K33 is compatible with most microcontrollers and communicates via a two-line bidirectional I2C-bus.
 
-# **Working schematic of HT16K33 chip**
+ **Working schematic of HT16K33 chip**
 
 ![](media/fa5b7bd0d5ce98dbd4cb392dfb0b95e7.png)
 
 We design the drive module of 8\*8 dot matrix based on the above principle. We could control the dot matrix by I2C communication and two pins of microcontroller, according to the above diagram.
 
-# **Specification**
+ **Specification**
 
 - Input voltage: 5V    
 
@@ -1325,11 +1325,11 @@ There are two IR line tracking sensors on the car. They are actually two pairs o
 
 ### **Project 7.1: Reading Values**
 
- **1.Description：**
+**1.Description：**
 
 In this experiment, we use ST188L3 infrared tubes to detect black and white lines, then print the data on the serial monitor.
 
- **2. Knowledge：**
+**2. Knowledge：**
 
 **Infrared line tracking:**
 
@@ -1765,7 +1765,7 @@ In this experiment, we will combine the IR receiver and the IR remote control to
 
  **2. Knowledge：**
 
-# **IR Remote Control：**
+ **IR Remote Control：**
 
 It is a device with buttons. When the key is pressed, IR signals will be sent.
 
@@ -1777,7 +1777,7 @@ The remote control is shown below:
 
 ![](media/3c9d76cb0d24d9861811ce2cb0bb6ae4.png)
 
-# **Infrared (IR) receiver:**
+ **Infrared (IR) receiver:**
 
 It can receive infrared light and be used to detect the infrared signal emitted by the infrared remote control.
 
@@ -1785,7 +1785,7 @@ It can demodulate the received infrared light signal and convert it back to bina
 
 ![](media/3da1969e509f53706643c77d0534eb73.png)
 
-# **NEC Infrared communication protocol：**
+ **NEC Infrared communication protocol：**
 
 **NEC Protocol**
 
@@ -1795,7 +1795,7 @@ I do admit that I don't know exactly who developed it. What I do know is that it
 
 This description was taken from my VCR's service manual. Those were the days, when service manuals were filled with useful information\!
 
-# **Features**
+ **Features**
 
 - 8 bit address and 8 bit command length.
 
@@ -1809,13 +1809,13 @@ This description was taken from my VCR's service manual. Those were the days, wh
 
 - Bit time of 1.125ms or 2.25ms.
 
-# **Modulation**
+ **Modulation**
 
 ![](media/da33571c6f0afb94b1ec1d91caba3edb.png)
 
 The NEC protocol uses pulse distance encoding of the bits. Each pulse is a 560µs long 38kHz carrier burst (about 21 cycles). A logical "1" takes 2.25ms to transmit, while a logical "0" is only half of that, being 1.125ms. The recommended carrier duty-cycle is 1/4 or 1/3
 
-# **Protocol**
+ **Protocol**
 
 ![](media/f970404e7bbfb5711fea5c776f689f3a.png)
 
@@ -1829,7 +1829,7 @@ A command is transmitted only once, even when the key on the remote control rema
 
 ![](media/afea92a3b5cc1aa2457d2b118b157c84.png)
 
-# **Extended NEC protocol**
+ **Extended NEC protocol**
 
 The NEC protocol is so widely used that soon all possible addresses were used up. By sacrificing the address redundancy the address range was extended from 256 possible values to approximately 65000 different values. This way the address range was extended from 8 bits to 16 bits without changing any other property of the protocol. 
 
