@@ -1,13 +1,13 @@
 # Arduino tutorial
 
+## Preparation for Arduino
+### 1. Getting started with Arduino
 
-## 1. Get started with Arduino
-
-### 1. Windows System：
+#### 1. Windows System：
 
 ![](media/6cf6312dc7c7db27794b54d58a8bf80c.png)
 
-#### **1.1 Installing Arduino IDE**
+ **1.1 Installing Arduino IDE**
 
 When you get control board, you need to download Arduino IDE and driver firstly.
 
@@ -47,7 +47,7 @@ If the following page appears, click **Install.**
 
 ![](media/d28223c55a30f949760779720fe4ec24.png)
 
-#### 1.2 Install a driver on Windows：
+**1.2 Install a driver on Windows：**
 
 If you have installed the driver, just skip it.
 
@@ -99,7 +99,7 @@ Open device manager, you will find the yellow exclamation mark disappear. The dr
 
 ![](media/af2324b73308f1796b8b7c9dc14878e7.png)
 
-#### 1.3. Install the ESP32 on Arduino IDE：
+**1.3. Install the ESP32 on Arduino IDE：**
 
 Note：you need to download Arduino IDE 1.8.5 or advanced version to install the ESP32
 
@@ -123,7 +123,7 @@ Enter **ESP32**”as follows, then click **Install**
 
 After installing, click“**Close**”
 
-#### 1.4. **Arduino IDE Setting**
+**1.4. Arduino IDE Setting**
 
 Click![](media/675ae7298ce0973df720b2fbbb514caa.png)icon to pen Arduino IDE.
 
@@ -162,15 +162,15 @@ E- Used to save the sketch.
 F- Used to send the serial data received from board to the serial
 monitor.
 
-### 2. Mac System
+#### 2. Mac System
 
 ![](media/a6fc83596009c574d8e29ef383748549.png)
 
-#### 2.1 Download Arduino IDE:
+ 2.1 Download Arduino IDE:
 
 ![](media/5d58d3cf67b308423ddb9f286f6cb697.png)
 
-#### **2.2 How to install the CP2102 driver：**
+ **2.2 How to install the CP2102 driver：**
 
 If you have installed the driver, just skip it
 
@@ -254,9 +254,9 @@ Then enter ArduinoIDE, click **Tools** and select Board **ESP32 Dev Module** and
 
 Click![](media/b7c913eaa4dcea1bc326dd7a7b5a2af6.png) to upload code and show“Done uploading”.
 
-### 3. How to Add Libraries?
+#### 3. How to Add Libraries?
 
-#### **(1) What are Libraries ?**
+ **(1) What are Libraries ?**
 
 Libraries are a collection of code that make it easy for you to connect a sensor,display, module, etc. 
 
@@ -266,7 +266,7 @@ The built-in libraries and some of these additional libraries are listed in the 
 
 (<https://www.arduino.cc/en/Reference/Libraries>)
 
-#### **(2) How to Install a Library ?**
+ **(2) How to Install a Library ?**
 
 Here we will introduce the most simple way to add libraries .
 
@@ -298,11 +298,11 @@ Then click“Replace the files in the destination”
 
 
 
-## 2. Keyestudio ESP32 Core Board
+### 2. Keyestudio ESP32 Core Board
 
 ![image-20230505154936028](media/image-20230505154936028.png)
 
-### Description:
+ Description:
 
 This keyestudio ESP32 core board is a Mini development board based on the ESP-WROOM-32 module. 
 
@@ -316,7 +316,7 @@ It integrates antenna switch, RF balun, power amplifiers, low noise amplifiers, 
 
 At the same time, it also integrates with TSMC's low-power 40nm technology, so that power performance and RF performance are safe and reliable, easy to expand to a variety of applications.
 
-### Technical Details:
+ Technical Details:
 
   - Microcontroller: ESP-WROOM-32 module
 
@@ -344,7 +344,7 @@ At the same time, it also integrates with TSMC's low-power 40nm technology, so t
     
     ![image-20230505155004949](media/image-20230505155004949.png)
 
-### Pin out
+ Pin out
 
 Warning: The voltage level of the ESP32 pins is 3.3V. If you want to connect the ESP32 to other devices that operate at 5V, you should use a level shifter to convert the voltage levels.
 
@@ -380,7 +380,7 @@ Note: GPIO6 to GPIO11 pins (SCK/CLK, SDO/SD0, SDI/SD1, SHD/SD2, SWP/SD3 and SCS/
 
 ![](media/4e99a4f953b9ede17b5c135232ddb476.png)
 
-## 3. Arduino Libraries and the CP2102 Driver：
+### 3. Arduino Libraries and the CP2102 Driver：
 
 Refer to the **Get started with Arduino** folder to gain access to more details about adding libraries and the CP2102 driver
 
@@ -392,7 +392,7 @@ If Arduino libraries and the CP2102 driver are added, just skip this step.
 
 
 
-## 4. Projects： 
+## Projects： 
 --------------
 
 ### Project 1: 6812 RGB 
@@ -1031,7 +1031,7 @@ There is an ultrasonic sensor on the car. It is a very affordable distance-measu
 
 The ultrasonic sensor sends a high-frequency ultrasonic signal that human hearing can’t hear. When encountering obstacles, these signals will be reflected back immediately. After receiving the returned information, the distance between the sensor and the obstacle will be calculated by judging the time difference between the transmitted signal and the received signal. It is mainly used for object avoidance and ranging in various robotics projects.
 
-#### Project 6.1: Ultrasonic Ranging 
+ Project 6.1: Ultrasonic Ranging 
 
  **Description：**
 
@@ -1139,7 +1139,7 @@ Power up with a USB cable, open the monitor and set baud to 115200. When you mov
 ![](media/31878b27e6494d1dcbcb7beabff4d60f.png)
 
 
-#### Project 6.2: Light Following 
+ Project 6.2: Light Following 
 
  **Description：**
 
@@ -1263,7 +1263,7 @@ Upload the code to the ESP32 board(if the code can’t be uploaded, you can clic
 
 Place batteries in the car and turn the power switch to ON end and power up. Then the car will follow the obstacle to move.
 
-#### Project 6.3: Dodge obstacles 
+ Project 6.3: Dodge obstacles 
 
  **Description：**
 
@@ -1457,7 +1457,7 @@ Place batteries in the car and power up. Then the car can automatically dodge ob
 
 There are two IR line tracking sensors on the car. They are actually two pairs of ST188L3 infrared tubes and used to detect black and white lines. In this project, we will make a line tracking car
 
-#### **Project7.1: Reading Values** 
+ **Project7.1: Reading Values** 
 
  **Description：**
 
@@ -1530,7 +1530,7 @@ The sensitivity can be adjusted by rotating the potentiometer. When the indicato
 ![](media/9f353a2dbbbc77b6b2d5c72ab8ed5a4f.png)
 
 
-#### Project 7.2: Line Tracking 
+ Project 7.2: Line Tracking 
 
  **Description：**
 
@@ -1666,7 +1666,7 @@ There are two photoresistors on the car. They can vary with the light intensity 
 
 Photoresistors can determine and conduct the car to move by detecting light.
 
-#### Project 8.1 Read Values 
+ Project 8.1 Read Values 
 
  **Description：**
 
@@ -1733,7 +1733,7 @@ When the light intensifies, the analog value will get increased; on the contrary
 ![](media/57d40f747b91ab12e31dc6678e2afeb4.png)
 
 
-#### Project 8.2: Light Following Car 
+ Project 8.2: Light Following Car 
 
  **Description：**
 
@@ -1879,7 +1879,7 @@ Infrared remote controls are everywhere in daily life. It is used to control var
 
 The remote control is composed of an IR emitter, an IR receiver and a decoding MCU. In this project, we will make a IR remote control car.
 
-#### Project 9.1: IR Remote and Reception 
+ Project 9.1: IR Remote and Reception 
 
  **Description：**
 
@@ -2023,7 +2023,7 @@ Press a key on the IR remote control, you will view a code on the serial monitor
 ![](media/ebcf0cb2055f7784505f76ceeaef9f47.jpeg)
 
 
-#### Project 9.2: IR Remote Control Car 
+ Project 9.2: IR Remote Control Car 
 
  **Description：**
 
@@ -2203,7 +2203,7 @@ Place batteries in the car, turn the power switch to ON end and power up. Turn t
 
 In this chapter, we will focus on the WiFi infrastructure of the ESP32. ESP32 has 3 different WiFi working modes: Station mode, AP mode and AP+Station mode. All WiFi programming projects must configure WiFi operating mode before using WiFi, otherwise WiFi cannot be used.
 
-#### Project 10.1：WIFI Station Mode 
+ Project 10.1：WIFI Station Mode 
 
  **Components**
 
@@ -2272,7 +2272,7 @@ When the ESP32 successfully connects to ssid\_WiFi, the serial monitor will prin
 ![](media/e8b7ebd8b6271b315ea1fa7a233132b3.png)
 
 
-#### Project 10.2：WIFI AP Mode 
+ Project 10.2：WIFI AP Mode 
 
  **Component Knowledge：**
 
@@ -2342,7 +2342,7 @@ When observing the printed information of the serial monitor, turn on the WiFi s
 
 ![](media/3e0ad895bea7f5100cc02a415adcace7.png)
 
-#### Project 10.3：WIFI AP+Station Mode 
+ Project 10.3：WIFI AP+Station Mode 
 
  **Component Knowledge：**
 
@@ -2423,7 +2423,7 @@ Observe the information printed on the serial display, turn on your cellphone an
 
 In the previous experiments, we have learned about the three modes of ESP32: WIFI Station mode, WIFI AP mode and WIFI AP+Station mode. Then in this chapter, we will use the WIFI Station mode of ESP32 to control a multi-function car via app
 
-#### Project 11.1: Read Character String 
+ Project 11.1: Read Character String 
 
  **Description：**
 
@@ -2567,7 +2567,7 @@ If the monitor doesn’t display anything, press reset button to reboot
 ![](media/c4029ae9b766e39ae146f43c182c9dcb.png)
 
 
-#### Project 11.2: Control 8*8 Dot Matrix Display Via WIFI  
+ Project 11.2: Control 8*8 Dot Matrix Display Via WIFI  
 
  **Description：**
 
@@ -2681,7 +2681,7 @@ void loop() {
 
 Click ![](media/db52b661d5b22528618e9c14aefa367e.png), the 8\*8 display will show the forward pattern, click ![](media/6abdf809090a56fb251e9ee4d44c70f4.png) , the stop pattern will be shown and click ![](media/aca24e8c4a86a9a2702160be4a4d9970.png), the display module will show the backward pattern.
 
-#### Project 11.3: Multi-purpose Car 
+ Project 11.3: Multi-purpose Car 
 
 In this project we will demonstrate how to control the car with app
 
@@ -2694,10 +2694,6 @@ In this project we will demonstrate how to control the car with app
 
 
 
-## 5. Resources
 
-Download code, libraries and more details, please refer to the following link:
-
-<https://fs.keyestudio.com/KS5002>
 
  

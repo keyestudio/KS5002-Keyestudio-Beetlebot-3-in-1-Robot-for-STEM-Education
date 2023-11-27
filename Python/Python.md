@@ -2297,8 +2297,4 @@ Enable WiFi, then you can see ssid\_AP on the ESP 32 board.
 
 
 
-## Resources
 
-Download code,libraries and more details, please refer to the following link:
-
-<https://fs.keyestudio.com/KS5002>
