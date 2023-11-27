@@ -39,7 +39,7 @@ Going forward, not only can it impart Micropython programming knowledge and AI a
 
 ![](media/image1.png)
 
-### Step 1
+ Step 1
 
 Components Required
 
@@ -49,7 +49,7 @@ Components Required
 
 ![](media/image4.png)
 
-### Step 2
+ Step 2
 
 Components Required
 
@@ -59,7 +59,7 @@ Components Required
 
 ![](media/image7.png)
 
-### Step 3
+ Step 3
 Comp onents Required
 
 ![](media/image8.jpeg)
@@ -68,7 +68,7 @@ Comp onents Required
 
 ![](media/image10.jpeg)
 
-### Step 4
+ Step 4
 
 Components Required
 
@@ -78,7 +78,7 @@ Components Required
 
 ![](media/image13.png)
 
-### Step 5
+ Step 5
 
 Components  Required
 
@@ -105,7 +105,7 @@ Connect the motor and the 8*8 dot matrix display to PCB boards
 
 ![](media/image18.png)
 
-### Step 6
+ Step 6
 
 Components Required
 
@@ -115,7 +115,7 @@ Components Required
 
 ![](media/image21.png)
 
-### Step 7
+ Step 7
 
 Components Required
 
@@ -125,7 +125,7 @@ Components Required
 
 ![](media/image24.png)
 
-### Step 8
+ Step 8
 
 Components Required
 
@@ -135,7 +135,7 @@ Components Required
 
 ![](media/image27.png)
 
-### Step  9
+ Step  9
 
 Components Required
 
@@ -201,7 +201,7 @@ How to get it
 
 ![](media/image33.png)
 
-### Step 10
+ Step 10
 
 Components Required
 
@@ -211,7 +211,7 @@ Components Required
 
 ![](media/image36.png)
 
-### Step 11
+ Step 11
 
 Components Required
 
@@ -221,7 +221,7 @@ Components Required
 
 ![](media/image39.png)
 
-### Wire up
+ Wire up
 
 Wire up the ultrasonic sensor Wire up the servo
 
@@ -269,11 +269,3 @@ Wire up the right photoresistor
 Download code,libraries and more details, please refer to the following link:
 
 [https://fs.keyestudio.com/KS5002](https://fs.keyestudio.com/KS5002)
-
-## 5.Tutorials
-
-[Arduino](Arduino/Arduino_Tutorials.md)
-
-[Scratch](Scratch/Scratch_Tutorials.md)
-
-[Python](Python/Python_Tutorials.md)

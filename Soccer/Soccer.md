@@ -1,13 +1,13 @@
 # Soccer Robot
 
-## **Description：**
+## Description：
 
  Can you imagine that a robot can play soccer? This idea has became
 realistic. As we know, the RoboCup championship is generally held
 each year. In this part, we will create a soccer robot to play
 soccer.
 
-## **How to install the soccer robot**
+## How to install the soccer robot
 
                               
  Step 1
@@ -243,7 +243,7 @@ Keep the claw close and face front before installing the gear
 ![IMG_256](media/4a7b89134d7aa5897733fa0ab411872c.jpeg)
 
 
- ## Install a soccer goal
+## Install a soccer goal
 
  Step 1                                                                 
  Required Parts
@@ -296,7 +296,7 @@ Required Parts
 Then the soccer goal is installed well.
 
 
-##  **Test Code for Arduino：**
+## Test Code for Arduino
 
     #include <WiFi.h>
     #include <ESPmDNS.h>
@@ -463,7 +463,7 @@ Then the soccer goal is installed well.
     }
 
 
-##  **Test Code for Kidsblock：**
+## Test Code for Kidsblock
 
 ![](media/ks5002-1.png)
 

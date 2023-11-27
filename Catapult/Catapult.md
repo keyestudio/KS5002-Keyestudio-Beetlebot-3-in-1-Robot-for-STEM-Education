@@ -1,6 +1,6 @@
-# **Catapult**
+# Catapult
 
-##  **Description：**
+##  Description：
 
 A catapult is a ballistic device used to launch a projectile a great
 distance without the aid of gunpowder or other propellants –
@@ -11,7 +11,7 @@ servos and gears, the car has LEGO tower used to carry projectiles.
 As the servo rotates to a proper angle then push the long arm
 backward a projectile will be launched.
 
-##  **How to build up a catapult**
+##  How to build up a catapult
 
 
  Step 1
@@ -335,7 +335,7 @@ backward a projectile will be launched.
 ![1ce70f3a2988e646798cadfc6fc8995](media/89fd41d160d778d0a7ef66c90fd28889.jpeg)
 
 
-## **Test Code for Arduino：**
+## Test Code for Arduino
 
     #include <WiFi.h>
     #include <ESPmDNS.h>
@@ -508,7 +508,7 @@ backward a projectile will be launched.
 
 
 
-## **Test Code for Kidsblock：**
+## Test Code for Kidsblock
 
 ![](media/ks5002-2.png)
 

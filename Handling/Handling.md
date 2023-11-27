@@ -1,6 +1,6 @@
-# **Handling Robot**
+# Handling Robot
 
-## **Description：**
+## Description：
 
 Among many industrial robots, handling robots are undoubtedly
 effective, applied in industrial manufacturing, warehousing and
@@ -9,7 +9,7 @@ or in post offices, libraries, ports and parking lots. In this
 experiment, we will use LEGO blocks to build a handling robot to
 carry things.
 
-## **How to build up a handling robot**
+## How to build up a handling robot
 
 
 
@@ -233,7 +233,7 @@ carry things.
 ![8c76722a8e1b9678784637c950ad597](media/3f637fbc0f6a056d188ef4e91c0483bd.jpeg)
 <!-- -->
 
-## **Test Code for Arduino：**
+## Test Code for Arduino
 
     #include <WiFi.h>
     #include <ESPmDNS.h>
@@ -405,7 +405,7 @@ carry things.
     }
 
 
-## **Test Code for Kidsblock：**
+## Test Code for Kidsblock
 ![](media/ks5002-3.png)
 
 Connect Wifi, click
