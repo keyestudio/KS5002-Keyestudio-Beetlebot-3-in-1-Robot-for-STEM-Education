@@ -1323,7 +1323,7 @@ Click ![](media/c005d91eb85d5c58566746609ab80254.png), the script starts running
 
 There are two IR line tracking sensors on the car. They are actually two pairs of ST188L3 infrared tubes and used to detect black and white lines. In this project, we will make a line tracking car.
 
-### **Project 7.1: Reading Values**
+### Project 7.1: Reading Values
 
 **1.Description：**
 

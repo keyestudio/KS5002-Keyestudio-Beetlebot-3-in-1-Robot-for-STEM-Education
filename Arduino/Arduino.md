@@ -3,7 +3,7 @@
 
 ## 1. Get started with Arduino
 
-### **1. Windows System：**
+### 1. Windows System：
 
 ![](media/6cf6312dc7c7db27794b54d58a8bf80c.png)
 
@@ -162,7 +162,7 @@ E- Used to save the sketch.
 F- Used to send the serial data received from board to the serial
 monitor.
 
-### **2. Mac System**
+### 2. Mac System
 
 ![](media/a6fc83596009c574d8e29ef383748549.png)
 
@@ -254,7 +254,7 @@ Then enter ArduinoIDE, click **Tools** and select Board **ESP32 Dev Module** and
 
 Click![](media/b7c913eaa4dcea1bc326dd7a7b5a2af6.png) to upload code and show“Done uploading”.
 
-### **3. How to Add Libraries?**
+### 3. How to Add Libraries?
 
 #### **(1) What are Libraries ?**
 
@@ -344,7 +344,7 @@ At the same time, it also integrates with TSMC's low-power 40nm technology, so t
     
     ![image-20230505155004949](media/image-20230505155004949.png)
 
-### **Pin out**
+### Pin out
 
 Warning: The voltage level of the ESP32 pins is 3.3V. If you want to connect the ESP32 to other devices that operate at 5V, you should use a level shifter to convert the voltage levels.
 
