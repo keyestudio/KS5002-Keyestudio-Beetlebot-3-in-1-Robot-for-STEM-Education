@@ -28,12 +28,12 @@ class="underline">https://github.com/thonny/thonny</span>](https://github.com/th
 
 ![](media/d3caa98d406fa06a124d5c98195b90db.png)
 
-1.  Click ![image-20230602081534150](media/image-20230602081534150.png) and select install mode. You can choose ![](media/11fb59a50abe0bf54df7e4cb891ad2c0.png) or ![](media/37be3f3bcc9aa0eb48c8b844eb46a71c.png)
+1.  Click ![](media/image-20230602081534150.png) and select install mode. You can choose ![](media/11fb59a50abe0bf54df7e4cb891ad2c0.png) or ![](media/37be3f3bcc9aa0eb48c8b844eb46a71c.png)
 
     
     ![](media/4c044b255da8b14fe674eb9cce01627d.png)
     
-2.  You can also keep selecting ![image-20230602081018819](media/image-20230602081018819.png) to finish install
+2.  You can also keep selecting ![](media/image-20230602081018819.png) to finish install
 
     ![](media/995b36640124b6a9b23f10473ff8a38a.png)
     

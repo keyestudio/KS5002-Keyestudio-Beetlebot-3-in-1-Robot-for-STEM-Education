@@ -546,7 +546,7 @@ uint32_t Wheel(byte WheelPos) {
 
 Upload the code to the ESP32 board (if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot , as shown below
 
-<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:100%;" />
+![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Power up with a USB cable, then 4 RGB LEDs will show different colors
 
@@ -607,7 +607,7 @@ void loop() {
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
-<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:100%;" />
+![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Power up with a USB cable, then the speaker module on the PCB board will play a song.
 
@@ -1722,7 +1722,7 @@ void loop()
 
 **Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below.
+Upload the code to the ESP32 board ,if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below.
 
 ![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
@@ -1897,7 +1897,7 @@ The infrared remote control adopts NEC coding, and the signal period is 110ms.
 
 The remote control is shown below:
 
-<img src="media/3c9d76cb0d24d9861811ce2cb0bb6ae4.png" style="zoom:50%;" />
+![](media/3c9d76cb0d24d9861811ce2cb0bb6ae4.png)
 
 
 Infrared (IR) receiver:
