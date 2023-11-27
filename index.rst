@@ -1,15 +1,15 @@
 
 .. toctree::
    :maxdepth: 3
-   :caption: keyestudio docs
+   :caption: KS5002 Keyestudio Beetlebot 3 in 1 Robot for ESP32
 
-   README.md
-   docs/index.md
-   docs/Arduino/Arduino_Tutorials.md
-   docs/Python/KS5002-Python.md
-   docs/Scratch/
-   docs/
-   docs/
+   home.md
+   Arduino/Arduino.md
+   Python/Python.md
+   Soccer/Soccer.md
+   Catapult/Catapult.md
+   Handling/Handling.md
+
 
 
 

@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'keyestudio WiKi'
+project = 'Beetlebot for ESP32'
 copyright = 'keyestudio , WiKi'
 author = 'keyestudio WiKi'
 
