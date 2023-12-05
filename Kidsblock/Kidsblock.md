@@ -34,7 +34,7 @@ Note: we take the Windows system as an example. As for MacOS system, just follow
 
 ![](media/178f0b5fc894cc1fd786e1186e37f402.jpeg)
 
-2.  Double-click KidsBlock icon，then drag <img src="media/deb978eaa3dcdaba89ec851b40da041d.png" style="zoom:50%;" /> to the **Applications folder.**
+2.  Double-click KidsBlock icon，then drag ![](media/deb978eaa3dcdaba89ec851b40da041d.png) to the **Applications folder.**
 
 ![](media/f63bcac690f9076ceaafb8cf4261fd9b.jpeg)
 
@@ -257,7 +257,7 @@ The SK6812RGB on the PCB board is controlled by the GPIO 14 of the ESP32 board.
 
 **Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />.
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png).
 
 Power up with a USB cable, then 4 RGB LEDs will show different colors
 
@@ -285,7 +285,7 @@ The speaker component on the PCB board is controlled by the GPIO 2 of the ESP32 
 
 **4.Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Power up with a USB cable, then the speaker module on the PCB board will play a song.
 
@@ -397,7 +397,7 @@ The 8\*8 dot matrix is controlled by GPIO21（SDA）and GPIO22（SCL）of the ES
 
 **4. Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Power up by a USB cable, the 8\*8 dot matrix display will show show patterns.
 
@@ -457,7 +457,7 @@ The servo for controlling the ultrasonic sensor is controlled by the GPIO4 of th
 
 **Test Result：**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Power up with a USB cable, open the monitor and set baud rate to 115200. Then the arm of the servo will rotate to 0°, 45°, 90°, 135° and 180°
 
@@ -580,7 +580,7 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 
 **6. Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Place batteries in the car, and turn the power switch to ON end and power up. Then the car moves forward for 2s, backward for 2s, turns left for 2s and right for 2s, stops for 2s.
 
@@ -616,9 +616,9 @@ The HC-SR04 or the ultrasonic sensor is being used in a wide range of electronic
 
 \3. If the signal returns, the Echo pin will output a high level, and the duration of the high level is the time from the transmission of the ultrasonic wave to the return.
 
-<img src="media/db430baa07e2e4d9ac9efca1950b953a.jpeg" style="zoom:67%;" />
+![](media/db430baa07e2e4d9ac9efca1950b953a.jpeg)
 
-<img src="media/4114885ac4b6214953e3224d8c1d52c4.png" style="zoom:67%;" />
+![](media/4114885ac4b6214953e3224d8c1d52c4.png)
 
 Time=Echo pulse width, unit: us
 
@@ -740,7 +740,7 @@ In the above experiments, we have learned about the 8*8 dot matrix, motor driver
 
 5.  **Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Place batteries in the car and turn the power switch to ON end and power up. Then the car will follow the obstacle to move.
 
@@ -1280,7 +1280,9 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 <td>Functions</td>
 </tr>
 <tr class="even">
-<td><img src="media/e471ee4e3fd5a9daafc9d97460124119.png" style="width:0.38542in;height:0.36458in" /></td>
+<td>
+
+![](media/e471ee4e3fd5a9daafc9d97460124119.png)</td>
 <td>FF629D</td>
 <td>Go forward</td>
 </tr>
@@ -1290,7 +1292,9 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 <td>Display “forward”pattern</td>
 </tr>
 <tr class="even">
-<td><img src="media/ace76021618d9ae6107a0f9b69dc47fc.png" style="width:0.38542in;height:0.36458in" /></td>
+<td>
+
+![](media/ace76021618d9ae6107a0f9b69dc47fc.png)</td>
 <td>FFA857</td>
 <td>Go back</td>
 </tr>
@@ -1300,7 +1304,9 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 <td>Display “back”pattern</td>
 </tr>
 <tr class="even">
-<td><img src="media/813f77055aefe6ee0fce22e14fbf093c.png" style="width:0.39583in;height:0.38542in" /></td>
+<td>
+
+![](media/813f77055aefe6ee0fce22e14fbf093c.png)</td>
 <td>FF22DD</td>
 <td>Turn left</td>
 </tr>
@@ -1310,7 +1316,9 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 <td>Show“left” pattern</td>
 </tr>
 <tr class="even">
-<td><img src="media/9eb9042aace52c96a86379dbac70ee2d.png" style="width:0.38542in;height:0.375in" /></td>
+<td>
+
+![](media/9eb9042aace52c96a86379dbac70ee2d.png)</td>
 <td>FFC23D</td>
 <td>Turn right</td>
 </tr>
@@ -1320,7 +1328,9 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 <td>Show“right turning”pattern</td>
 </tr>
 <tr class="even">
-<td><img src="media/68cbb08d230ef50b2f69c66c685414f6.png" style="width:0.35417in;height:0.35417in" /></td>
+<td>
+
+![](media/68cbb08d230ef50b2f69c66c685414f6.png)</td>
 <td>FF02FD</td>
 <td>stop</td>
 </tr>
@@ -1367,9 +1377,17 @@ In this experiment, we first use the WIFI Station mode of ESP32 to read the char
 <table border="1">
 <tbody>
 <tr class="odd">
-<td><img src="media/729232b0c2d2c01984808289b222890c.png" style="width:1.8125in;height:0.86458in" /></td>
-<td><img src="media/683c0fdcc907dbff3421730205af4088.jpeg" style="width:2.02222in;height:1.47431in" alt="IMG_256" /></td>
-<td><img src="media/41abce34fdbca029fdea842bba8208c0.png" style="width:0.63194in;height:1.25972in" /><img src="media/3567b7cbf98e20010044a1133bab78b7.png" style="width:1.72847in;height:1.02778in" alt="12" /></td>
+<td>
+
+![](media/729232b0c2d2c01984808289b222890c.png)</td>
+<td>
+
+![](media/683c0fdcc907dbff3421730205af4088.jpeg)</td>
+<td>
+
+![](media/41abce34fdbca029fdea842bba8208c0.png)
+
+![](media/3567b7cbf98e20010044a1133bab78b7.png)</td>
 </tr>
 <tr class="even">
 <td>USB Cablex1</td>
@@ -1419,7 +1437,7 @@ Change the Wifi name and password into yours
 
 **5. Test Result**
 
-Upload the code to the ESP32 board(if the code can’t be uploaded, you can click<img src="media/dc77bfcf5851c8f43aab6cbe7cec7920.png" style="zoom:67%;" />
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Place batteries in the car, turn the power switch to ON end and power up.
 
@@ -1450,9 +1468,17 @@ In this experiment, we will use the WIFI Station mode to control the 8\*8 dot ma
 <table border="1">
 <tbody>
 <tr class="odd">
-<td><img src="media/729232b0c2d2c01984808289b222890c.png" style="width:1.8125in;height:0.86458in" /></td>
-<td><img src="media/683c0fdcc907dbff3421730205af4088.jpeg" style="width:2.02222in;height:1.47431in" alt="IMG_256" /></td>
-<td><img src="media/41abce34fdbca029fdea842bba8208c0.png" style="width:0.63194in;height:1.25972in" /><img src="media/3567b7cbf98e20010044a1133bab78b7.png" style="width:1.72847in;height:1.02778in" alt="12" /></td>
+<td>
+
+![](media/729232b0c2d2c01984808289b222890c.png)</td>
+<td>
+
+![](media/683c0fdcc907dbff3421730205af4088.jpeg)</td>
+<td>
+
+![](media/41abce34fdbca029fdea842bba8208c0.png)
+
+![](media/3567b7cbf98e20010044a1133bab78b7.png)</td>
 </tr>
 <tr class="even">
 <td>USB Cable x1</td>
@@ -1483,9 +1509,15 @@ In this project we will demonstrate how to control the car with app
 <table border="1">
 <tbody>
 <tr class="odd">
-<td><img src="media/729232b0c2d2c01984808289b222890c.png" style="width:1.8125in;height:0.86458in" /></td>
-<td><img src="media/683c0fdcc907dbff3421730205af4088.jpeg" style="width:2.02222in;height:1.47431in" alt="IMG_256" /></td>
-<td><img src="media/41abce34fdbca029fdea842bba8208c0.png" style="width:0.63194in;height:1.25972in" /><img src="media/3567b7cbf98e20010044a1133bab78b7.png" style="width:1.72847in;height:1.02778in" alt="12" /></td>
+<td>
+
+![](media/729232b0c2d2c01984808289b222890c.png)</td>
+<td>
+
+![](media/683c0fdcc907dbff3421730205af4088.jpeg)</td>
+<td>
+
+![](media/41abce34fdbca029fdea842bba8208c0.png)![](media/3567b7cbf98e20010044a1133bab78b7.png)</td>
 </tr>
 <tr class="even">
 <td>USB Cable x1</td>
