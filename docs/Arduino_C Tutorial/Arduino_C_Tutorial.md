@@ -122,7 +122,7 @@ ESP32 board needs to be installed in Arduino IDE before using.
 
 ![Img](./media/img-20241129110938.png)
 
-2\. Add the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
+2\. Add the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**   in Additional boards manager URLs and click **OK**.
 
 ![Img](./media/img-20241129111458.png)
 

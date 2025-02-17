@@ -135,9 +135,9 @@ Click to download to all resources such as project codes and libraries.
 
 # ESP32 Main Control Board
 
-![image-20230505154936028](./media/image-20230505154936028.png)
+![Img](./media/img-20250217112025.png)
 
-**Description:**
+**1. Description:**
 
 This keyestudio ESP32 core board is a Mini development board based on the ESP-WROOM-32 module. 
 
@@ -151,7 +151,7 @@ It integrates antenna switch, RF balun, power amplifiers, low noise amplifiers, 
 
 At the same time, it also integrates with TSMC's low-power 40nm technology, so that power performance and RF performance are safe and reliable, easy to expand to a variety of applications.
 
-**Technical Details:**
+**2. Technical Details:**
 
   - Microcontroller: ESP-WROOM-32 module
 
@@ -177,9 +177,9 @@ At the same time, it also integrates with TSMC's low-power 40nm technology, so t
 
   - Weight: 9.3g
     
-    ![image-20230505155004949](./media/image-20230505155004949.png)
+![Img](./media/img-20250217112125.png)
 
-**Pin out**
+**3. Pin out**
 
 <span style="color: rgb(255, 76, 65);">Warning:</span> The voltage level of the ESP32 pins is 3.3V. If you want to connect the ESP32 to other devices that operate at 5V, you should use a level shifter to convert the voltage levels.
 

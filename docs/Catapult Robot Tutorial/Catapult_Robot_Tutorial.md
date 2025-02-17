@@ -10,7 +10,7 @@ As the servo rotates to a proper angle then push the long arm backward a project
 
 **⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#project-18-read-wifi-app-button-string) .
 
-##  How to build up a catapult
+##  How to build up a catapult robot
 
 
  **Step 1**
