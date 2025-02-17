@@ -512,7 +512,7 @@ We design the drive module of 8\*8 dot matrix based on the above principle. We c
 
  **3. Introduction for Modulus Tool**
 
-The online version of dot matrix modulus tool:<http://dotmatrixtool.com/>
+The online version of dot matrix modulus tool: [http://dotmatrixtool.com/](http://dotmatrixtool.com/)
 
 ①Open the link to enter the following page.
 
@@ -600,7 +600,8 @@ The servo is a motor that can rotate very accurately. It has been widely applied
 
  **2. Knowledge：**
 
-![](media/99830768916233a9c5900ac399006c17.png)
+![Img](./media/img-20250217114533.png)
+
 
 Servo motor is a position control rotary actuator. It mainly consists of a housing, a circuit board, a core-less motor, a gear and a position sensor. Its working principle is that the servo receives the signal sent by MCU or receiver and produces a reference signal with a period of 20ms and width of 1.5ms, then compares the acquired DC bias voltage to the voltage of the potentiometer and obtain the voltage difference output.
 
@@ -733,8 +734,6 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 |    Stop    |  LOW   |      0       |     stop      |  LOW   |      0       |     stop      |
 
 **5. Test Code：**
-
-
 
 Open “Thonny IDE” and choose “This Computer” → “D:” → “Codes” → “MicroPython_Code”. Open the file “Project_05_Motor_Drive_And_Speed_Regulation.py” or copy and paste the following code into “Thonny IDE”.
 

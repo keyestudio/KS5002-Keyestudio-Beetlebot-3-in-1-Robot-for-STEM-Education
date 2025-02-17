@@ -6,15 +6,9 @@
 
 - How do I download, install and use the reference link of the KidsBlock IDE：  [https://docs.keyestudio.com/projects/KidsBlock/en/latest/](https://docs.keyestudio.com/projects/KidsBlock/en/latest/)
 
-### 1.2. Interface Setting
+### 1.2. Select device
 
-After the KidsBlock is installed，open KidsBlock to click![](media/bfbf7c471ede03845519b11961a13837.png)\<“**Beetlebot**”\<“**Connect**”，
-
-Then the **Beetlebot car is connected.** Click**“Go to Editor”**to return the code editor.
-
-![](media/bfbf7c471ede03845519b11961a13837.png)will change into![](media/0f64e7bcfda60830752545e973795914.png).
-
-This means the **Beetlebot car is connected to the COM port**
+After the KidsBlock is installed，open KidsBlock to click![](media/bfbf7c471ede03845519b11961a13837.png)\<“**Beetlebot**”\<“**Connect**”. Then the **Beetlebot car is connected.** Click **“Go to Editor”** to return the code editor. ![](media/bfbf7c471ede03845519b11961a13837.png)will change into![](media/0f64e7bcfda60830752545e973795914.png). This means the **Beetlebot car is connected to the COM port**
 
 ![](media/da9cf688336d2fd12385d7d14a3b2ba6.png)
 
@@ -26,23 +20,18 @@ This means the **Beetlebot car is connected to the COM port**
 
 ![](media/75546e5a326ca5a8e22cb0d389556ca7.png)
 
-If the car is connected, but![](media/db0135c23e5313dac75a33d7d2faa529.png)doesn’t change into ![](media/0f64e7bcfda60830752545e973795914.png)，
+If the equipment is chosen the and the car is connected, but![](media/db0135c23e5313dac75a33d7d2faa529.png)doesn’t change into ![](media/0f64e7bcfda60830752545e973795914.png)，
 
 Just click![](media/db0135c23e5313dac75a33d7d2faa529.png)to connect the COM port.Click![](media/db0135c23e5313dac75a33d7d2faa529.png)，then click“**Connect**”，after a while, if the “**Connected**” page pops up，the com port will be connected.
 
 ![](media/918826a8fb5e09cfef2aa8ee6523ac05.png)
 
-![](media/fe6f25032815b37eb7c04029ba940e97.png)
+![](media/150c7e7007bdfeddbe4ed0049303958e.png)
 
 ![](media/b15ecf407d1f55b5c1bbb3e15cc84b23.png)
 
 ![](media/75546e5a326ca5a8e22cb0d389556ca7.png)
 
-Then click ![](media/770292e2b4d7555030eaf7951cf58aec.png)to switch the mode ![](media/6647392e2b1488904406ad656f6e08b4.png)
-
-![](media/b3699180fe470cb9747eeb11d7547209.png)
-
-![](media/f6feacfc376ae957d8d05747e37d75f8.png)
 
 ## 2. Projects：
 
@@ -154,9 +143,7 @@ We design the drive module of 8*8 dot matrix based on the above principle. We co
 
 **Introduction for Modulus Tool**
 
-The online version of dot matrix modulus tool:
-
-<http://dotmatrixtool.com/>
+The online version of dot matrix modulus tool: [http://dotmatrixtool.com/](http://dotmatrixtool.com/)
 
 ①Open the link to enter the following page.
 
@@ -227,7 +214,7 @@ The servo is a motor that can rotate very accurately. It has been widely applied
 
 **2. Knowledge：**
 
-![](media/99830768916233a9c5900ac399006c17.png)
+![Img](./media/img-20250217114505.png)
 
 Servo motor is a position control rotary actuator. It mainly consists of a housing, a circuit board, a core-less motor, a gear and a position sensor. Its working principle is that the servo receives the signal sent by MCU or receiver and produces a reference signal with a period of 20ms and width of 1.5ms, then compares the acquired DC bias voltage to the voltage of the potentiometer and obtain the voltage difference output.
 

@@ -480,6 +480,15 @@ Complete
 
 ![](media/image39.png)
 
+**Install battery**
+
+(<span style="color: rgb(255, 76, 65);">**Special attention:**</span>  the positive and negative terminals of the battery must not be installed in reverse, otherwise, it will burn the battery and the car.)
+
+![Img](./media/img-20250217151547.png)
+
+![Img](./media/img-20250217151601.png)
+
+
 **Wire up**
 
 Wire up the ultrasonic sensor 
@@ -540,7 +549,7 @@ Original installation completed diagram
 
 3. Q: After burning code, sensors/modules do not work or the serial monitor shows nothing?
 
-	A: Please ensure the connected pin is in accordance with the code. If it is not, codes prevail.
+	A: Please ensure the connected pin is in accordance with the code. If it is not, press the reset button on the ESP32 main control board.
 
 4. Q: Servo works out of order?
 
@@ -550,35 +559,20 @@ Original installation completed diagram
 
 	A: The distance is detected from the emitter. This module is not a high-precision one, so differences exist.
 
-6. Q: Fan(motor) works out of order to burn the main board?
+6. Q: Motors works out of order to burn the main board?
 
-	A: When the fan is working, the required current is larger than that of other sensors, which may cause voltage and current fluctuations in the circuit. Especially when the fan is rotating forward to backward, the fluctuations are so large that the voltage and current of the ESP32 board is very low, thus being reset. An external power supply is required for the ESP32 board to ensure that the fans can work properly.
+	A: When the motors is working, the required current is larger than that of other sensors, which may cause voltage and current fluctuations in the circuit. Especially when the motors is rotating forward to backward, the fluctuations are so large that the voltage and current of the ESP32 board is very low, thus being reset. An external power supply is required for the ESP32 board to ensure that the motors can work properly.
 
 7. Q: The tone played by the passive buzzer is not conform with actual intonation pitch?
 
 	A: The common passive buzzer can not meet the requirements of professional tones. If you need very accurate pitch, a more professional buzzer should be adopted.
 
-8. Q: False alarm happens on the PIR motion sensor?
 
-	A: To avoid false alarm, requirements are as follows:
-
-	- Away the detection range from blowing objects caused by the wind, such as curtains, clothing and flowers.
-	- Away the detection range from interference of strong light irradiation, including sunlight, car light and spotlight.
-
-
-9. Q: Is the temperature and humidity sensor waterproof?
-
-	A: The sensor detects the temperature and humidity in the air, rather than water. It is not waterproof so please do not directly put it into water.
-
-10. Q: OLED module does not light up after powering on?
-
-	A: OLED does not include a backlight and is self-lighting mode. OLED will not light when only connecting to VCC and GND. It must be programmed to light up.
-
-11. Q: WiFi connection always fails?
+8. Q: WiFi connection always fails?
 
 	A: Please put the ESP32 WiFi board around the router, press the on-board reset button, and wait for the connection. If it still can’t connect, please check whether the WiFi name and passwords are correct.
 
-12. Q: The response is slow when remote-controlling sensors through web page?
+9. Q: The response is slow when remote-controlling sensors through web page?
 
 	A: Causes of slow transmission on router network:
 
@@ -587,6 +581,7 @@ Original installation completed diagram
 	- If the router is used for a long time, restart it.
 
 	- There is wireless interference. Wireless signals are unstable, so please do not use through walls.
+    
 	- For more router related knowledge, please **Google**.
 
 

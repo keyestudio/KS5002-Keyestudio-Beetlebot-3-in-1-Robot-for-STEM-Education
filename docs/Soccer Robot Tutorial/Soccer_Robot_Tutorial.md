@@ -149,7 +149,7 @@ Complete
 
 Install
 
-Note the installation direction of the part marked by the red circle
+Note the installation direction of the part marked by the circle
 
 
 ![Img](./media/img-20250217094008.png)

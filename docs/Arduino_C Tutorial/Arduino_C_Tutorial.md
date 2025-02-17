@@ -122,7 +122,7 @@ ESP32 board needs to be installed in Arduino IDE before using.
 
 ![Img](./media/img-20241129110938.png)
 
-2\. Add the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**   in Additional boards manager URLs and click **OK**.
+2\. Add the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
 
 ![Img](./media/img-20241129111458.png)
 
@@ -488,9 +488,8 @@ We design the drive module of 8\*8 dot matrix based on the above principle. We c
 
  **Introduction for Modulus Tool**
 
-The online version of dot matrix modulus tool:
+The online version of dot matrix modulus tool: [http://dotmatrixtool.com/](http://dotmatrixtool.com/)
 
-<http://dotmatrixtool.com/>
 
 ①Open the link to enter the following page.
 
@@ -586,7 +585,8 @@ The servo is a motor that can rotate very accurately. It has been widely applied
 
  **2. Knowledge：**
 
-![](media/99830768916233a9c5900ac399006c17.png)
+![Img](./media/img-20250217114519.png)
+
 
 Servo motor is a position control rotary actuator. It mainly consists of a housing, a circuit board, a core-less motor, a gear and a position sensor. Its working principle is that the servo receives the signal sent by MCU or receiver and produces a reference signal with a period of 20ms and width of 1.5ms, then compares the acquired DC bias voltage to the voltage of the potentiometer and obtain the voltage difference output.
 
@@ -781,7 +781,8 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 | Turn right | LOW    | 200          | clockwise     | HIGH   | 200          | anticlockwise |
 | Stop       | LOW    | 0            | stop          | LOW    | 0            | stop          |
 
- **5. Test Code：**
+ 
+**5. Test Code：**
 
 ```c
 /*
