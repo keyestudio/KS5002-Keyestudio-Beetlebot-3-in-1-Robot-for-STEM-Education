@@ -4,6 +4,11 @@
 
  Can you imagine that a robot can play soccer? This idea has became realistic. As we know, the RoboCup championship is generally held each year. In this part, we will create a soccer robot to play soccer.
 
+## Install APP
+
+**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#project-18-read-wifi-app-button-string) .
+
+
 ## How to install the soccer robot
 
                               
@@ -18,17 +23,20 @@
 
  Required Parts
 
-![3_3](media/52bddcd05b409305adfbb39a9af55ee6.png)
+![Img](./media/img-20250217093727.png)
 
 ------
 
 Install
 
-![3_4](media/9b295f5c6b71340264eb54fd701296d6.png)
+![Img](./media/img-20250217093736.png)
+
 
 ------
 
-![3_5](media/448e4708895f49afd985391c8ac0cd04.png)
+Complete
+
+![Img](./media/img-20250217093746.png)
 
 ------
 
@@ -37,17 +45,22 @@ Install
 
  Required Parts
 
-![5](media/b7ca00b9d07fc08780f5e6e39595d974.png)
+![Img](./media/img-20250217093756.png)
+
 
 ------
 
 Install
 
-![5_1](media/d124cb9095a9cecb1eea4c9b565da3dd.png)
+![Img](./media/img-20250217093803.png)
+
 
 ------
 
-![5_2](media/ef1331144242e5bc24bc426842d98573.png)
+Complete
+
+![Img](./media/img-20250217093809.png)
+
 
 ------
 
@@ -56,17 +69,22 @@ Install
 
  Required Parts
 
-![6](media/2520ee435d034c60b66058e4bacfadb6.png)
+![Img](./media/img-20250217093818.png)
+
 
 ------
 
 Install
 
-![6_1](media/1d88fd0c5f6b4aff89c3900b3df5533d.png)
+![Img](./media/img-20250217093826.png)
+
 
 ------
 
-![6_2](media/d05ab09c6662e3fb4d62be4f355a91be.png)
+Complete
+
+![Img](./media/img-20250217093833.png)
+
 
 ------
 
@@ -76,17 +94,20 @@ Install
 
  Required Parts
 
-![7](media/82c5dd6fbe0818dbdbaf33ee0b019215.png)
+![Img](./media/img-20250217093842.png)
+
 
 ------
 
 Install
 
-![7_1](media/5964ab1fd800a0522923960dd32be299.png)
+![Img](./media/img-20250217093915.png)
 
 ------
 
-![7_2](media/29abea2f58433515043942fd37af34e7.png)
+Complete
+
+![Img](./media/img-20250217093924.png)
 
 ------
 
@@ -96,17 +117,22 @@ Install
 
  Required Parts
 
-![7_3](media/91e35080c03e1ca03b2a58b71da76e43.png)
+![Img](./media/img-20250217093935.png)
+
 
 ------
 
 Install
 
-![7_4](media/a643659079fdbf1433bb40658a590675.png)
+![Img](./media/img-20250217093945.png)
+
 
 ------
 
-![7_5](media/9ec78ee08c51b297ccaa34b13fa8ae8d.png)
+Complete
+
+![Img](./media/img-20250217093953.png)
+
 
 ------
 
@@ -116,7 +142,8 @@ Install
 
  Required Parts
 
-![7_6](media/d3ae331c69d05147a98b9d8353496a9f.png)
+![Img](./media/img-20250217094000.png)
+
 
 ------
 
@@ -125,11 +152,15 @@ Install
 Note the installation direction of the part marked by the red circle
 
 
-![7_7](media/77092cee1e554dc3b259b2a1ef7f6e4e.png)
+![Img](./media/img-20250217094008.png)
+
 
 ------
 
-![7_8](media/f939d187c78455662d9c3fd3bc77d8b7.png)
+Complete
+
+![Img](./media/img-20250217094015.png)
+
 
 ------
 
@@ -139,17 +170,22 @@ Note the installation direction of the part marked by the red circle
 
  Required Parts
 
-![7_9](media/f2a0fea032c9ca807196bae481054b82.png)
+![Img](./media/img-20250217094025.png)
+
 
 ------
 
 Install
 
-![7_10](media/e9fb139ce5954ee5d0cc32028b15d1a4.png)
+![Img](./media/img-20250217094033.png)
+
 
 ------
 
-![7_11](media/dc849d125d6cf7748725d369ca39b6f2.png)
+Complete
+
+![Img](./media/img-20250217094039.png)
+
 
 ------
 
@@ -158,7 +194,8 @@ Install
 
  Required Parts
 
-![8](media/f45d4a0edb9caf49703f6a14061d3356.png)
+![Img](./media/img-20250217094047.png)
+
 
 ------
 
@@ -166,11 +203,15 @@ Install
 
 Adjust the angle of the claw. Then make it close and face front
 
-![8_1](media/d65a5580f2fc3292ad22005e1b480a3c.png)
+![Img](./media/img-20250217094057.png)
+
 
 ------
 
-![8_2](media/54d2787ec549a6d651753475ca760f6b.png)
+Complete
+
+![Img](./media/img-20250217094104.png)
+
 
 ------
 
@@ -180,7 +221,8 @@ Adjust the angle of the claw. Then make it close and face front
 
  Required Parts
 
-![8_3](media/f410d612e4ea08f789b5f8c2fe625947.png)
+![Img](./media/img-20250217094112.png)
+
 
 ------
 
@@ -194,39 +236,61 @@ Adjust the angle of the claw. Then make it close and face front
 |    Orange     | S2（GPIO23) |
 
 
+**Method 1：Arduino code**
+
 Upload the code of the servo to the main board of the Beetlebot car, as shown below
 
 ```C
 //*************************************************************************************
 #include <Arduino.h>
-
-int channel_PWM = 4;  
+// servo channels 
+int channel_PWM = 3;  
+// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock
 int freq_PWM = 50;   
+//PWM resolution, the value is between 0-20, here is 10, then the pwm value filled in the following ledcWrite is between 0-2 to the 10th power, that is, 0-1024.
 int resolution_PWM = 10;   
-const int PWM_Pin = 23;  
-
+//
+const int PWM_Pin = 23;  //connect pwm to GPIO23
 void setup() {
-   ledcSetup(channel_PWM, freq_PWM, resolution_PWM); 
-   ledcAttachPin(PWM_Pin, channel_PWM);  
-}
+  ledcSetup(channel_PWM, freq_PWM, resolution_PWM); // Set servo channel, servo frequency, PWM resolution.
+  ledcAttachPin(PWM_Pin, channel_PWM);  //connect LEDC channels to IO ports
 
-void loop() {
-   ledcWrite(channel_PWM, 128);  
+  ledcWrite(channel_PWM, 25);  //The 20ms high level is about 0.5ms, which is 0.5/20*1024, and the angle of the steering gear is 25°.
+  delay(1000);
+  ledcWrite(channel_PWM, 128);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 180°.
+  delay(1000);
 }
+void loop() {
+
+} 
 //*************************************************************************************
 ```
 
-You can also initialize the angle of the servo through the following code
+How to get it ?
 
-![](media/00f77a1d94aaae5bc1b8b68e6bc6fa60.png)
+In folder **..\Codes\Soccer_Robot_Code\270° Servo Angle initialization** , open file **270_Servo_Angle_initialization.ino** , or copy and paste the above test code into the Arduino IDE.
+
+![Img](./media/img-20250217100047.png)
+
+**Method 2：KidsBlock(Scratch) code**
+
+ You can also initialize the angle of the servo through the following code
+
+![Img](./media/img-20250217094935.png)
+
+Open file **270°_Servo_Angle_initialization.sb3** with KidsBlock IDE, in folder **..\Codes\Soccer_Robot_Code\270° Servo Angle initialization**.
+
+![Img](./media/img-20250217100111.png)
 
 Install
 
-Keep the claw close and face front before installing the gear
+<span style="color: rgb(255, 76, 65);">Note:</span> Keep the claw close and face front before installing the gear
 
 ![8_4](media/e7d79896568d0f97ad08aeee6a69aec1.png)
 
 ------
+
+Complete
 
 ![8_5](media/ad193ecc917138ddb44328e10ef19654.png)
 
@@ -238,17 +302,22 @@ Keep the claw close and face front before installing the gear
 
  Required Parts
 
-![3_6](media/90986cacd92570cdd76b437df5e1b916.png)
+![Img](./media/img-20250217102039.png)
+
 
 ------
 
 Install
 
-![3_7](media/228346c56280be9b2516abd39c9fa7c7.png)
+![Img](./media/img-20250217102047.png)
+
 
 ------
 
-![3_8](media/3b9a3a2fce95bcf48fc833aed69fe4b6.png)
+Complete
+
+![Img](./media/img-20250217102054.png)
+
 
 ------
 
@@ -258,21 +327,27 @@ Install
 
  Required Parts
 
-![3_9](media/68d76c258157e550ea345fecc3d97342.png)
+![Img](./media/img-20250217102102.png)
+
 
 ------
 
 Install
 
-![3_10](media/31805e285ab9d3c8b487fe769c97574b.png)
+![Img](./media/img-20250217102109.png)
+
 
 ------
 
-![3_11](media/4a59747ea4ecc8e8eb328935007684b4.png)
+Complete
+
+![Img](./media/img-20250217102119.png)
+
 
 ------
 
-![3_12](media/40ced3c517b76bdca41bb867388291cc.png)
+![Img](./media/img-20250217102128.png)
+
 
 ------
 
@@ -282,7 +357,7 @@ Install
 
  Wire up the LEGO servo
 
-![IMG_256](media/4a7b89134d7aa5897733fa0ab411872c.jpeg)
+![Img](./media/img-20250217103548.png)
 
 
 ## Install a soccer goal
@@ -300,6 +375,8 @@ Install
 ![2_1](media/1bd86df44aba070fea465a1da26df9e9.png)
 
 ------
+
+Complete
 
 ![2_2](media/f3749804b3ac033cfdd7b4423ddea660.png)
 
@@ -321,6 +398,8 @@ Install
 
 ------
 
+Complete
+
 ![2_5](media/567e873c86303e9e7ef0f6c919ae8fac.png)
 
 ------
@@ -341,6 +420,8 @@ Install
 
 ------
 
+Complete
+
 ![2_8](media/89031df8ec6afe07c8e58fe26a2974c4.png)
 
 ------
@@ -350,182 +431,190 @@ Then the soccer goal is installed well.
 
 ## Test Code for Arduino
 
+**⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
+
 ```C
-    #include <WiFi.h>
-    #include <ESPmDNS.h>
-    #include <WiFiClient.h>
+#include <WiFi.h>
+#include <ESPmDNS.h>
+#include <WiFiClient.h>
 
-    #define INA 32
-    #define PWMA 25
-    #define INB 33
-    #define PWMB 26
+#define INA 32
+#define PWMA 25
+#define INB 33
+#define PWMB 26
 
-    const char* ssid = "ChinaNet-2.4G-0DF0";
-    const char* password = "ChinaNet@233";
-    // TCP server at port 80 will respond to HTTP requests
-    WiFiServer server(80);
-    int channel_PWM = 3; 
-    int freq_PWM = 50;
-    int resolution_PWM = 10;
-    const int servopin = 4;
-    void setup(void)
-    {
-        Serial.begin(115200);
-        pinMode(INA, OUTPUT);
-        ledcAttachPin(PWMA, 0);
-        ledcSetup(0, 50, 8);
-        pinMode(INB, OUTPUT);
-        ledcAttachPin(PWMB,1);
-        ledcSetup(1, 50, 8);
-        ledcSetup(3, 50, 10); 
-        ledcAttachPin(23, 3); 
-        ledcWrite(channel_PWM, set_angle(180));
-        delay(300);
-        // Connect to WiFi network
-        WiFi.begin(ssid, password);
-        Serial.println("");
-        // Wait for connection
-        while (WiFi.status() != WL_CONNECTED) {
-            delay(500);
-            Serial.print(".");
+/*REPLACE WITH YOUR NETWORK CREDENTIALS(Put your SSID & Password)*/
+const char* ssid = "REPLACE_WITH_YOUR_SSID"; //Enter SSID here
+const char* password = "REPLACE_WITH_YOUR_PASSWORD"; //Enter Password here
+// TCP server at port 80 will respond to HTTP requests
+WiFiServer server(80);
+
+//servo
+int channel_PWM = 3; // servo channel
+// Servo frequency. The period is 1/50, which is 20ms. The PWM has a total of 16 channels, of which the 0-7 bit high-speed channel is driven by an 80Mhz clock, and the following eight low-speed channels are driven by a 1Mhz clock.
+int freq_PWM = 50;
+// PWM resolution, ranging from 0 to 20. If this is 10, the pwm value in ledcWrite is between 0 and 2 to the power of 10, which is 0 to 1024. If the requirements are not high, you can just use 1000.
+int resolution_PWM = 10;
+// Bind I/O ports. This is used in the binding function below. After binding, this IO becomes the output of the PWM.
+const int servopin = 4;//Define the IO pin of the servo as gpio4.
+
+void setup(void)
+{
+    Serial.begin(115200);
+    pinMode(INA, OUTPUT);
+    ledcAttachPin(PWMA, 2);
+    ledcSetup(2, 1200, 8);//Set the LEDC channel 2 frequency to 1200 and the PWM resolution to 8, that is, the duty cycle to 256.
+    pinMode(INB, OUTPUT);
+    ledcAttachPin(PWMB,1);
+    ledcSetup(1, 1200, 8);//Set the LEDC channel 1 frequency to 1200 and the PWM resolution to 8, that is, the duty cycle to 256.
+    
+    ledcSetup(3, 50, 10); // Set the frequency of servo channel 3 to 50 and the PWM resolution to 10.
+    ledcAttachPin(23, 3);  //Bind the LEDC channel to the specified I/O port for output.
+    ledcWrite(channel_PWM, set_angle(180));
+    delay(300);
+
+    // Connect to WiFi network
+    WiFi.begin(ssid, password);
+    Serial.println("");
+
+    // Wait for connection
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+    Serial.println("");
+    Serial.print("Connected to ");
+    Serial.println(ssid);
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+
+    // Set up mDNS responder:
+    // - first argument is the domain name, in this example
+    //   the fully-qualified domain name is "esp32.local"
+    // - second argument is the IP address to advertise
+    //   we send our IP address on the WiFi network
+    if (!MDNS.begin("esp32")) {
+        Serial.println("Error setting up MDNS responder!");
+        while(1) {
+            delay(1000);
         }
-        Serial.println("");
-        Serial.print("Connected to ");
-        Serial.println(ssid);
-        Serial.print("IP address: ");
-        Serial.println(WiFi.localIP());
+    }
+    Serial.println("mDNS responder started");
 
-        // Set up mDNS responder:
-        // - first argument is the domain name, in this example
-        //   the fully-qualified domain name is "esp32.local"
-        // - second argument is the IP address to advertise
-        //   we send our IP address on the WiFi network
-        if (!MDNS.begin("esp32")) {
-            Serial.println("Error setting up MDNS responder!");
-            while(1) {
-                delay(1000);
-            }
-        }
-        Serial.println("mDNS responder started");
+    // Start TCP (HTTP) server
+    server.begin();
+    Serial.println("TCP server started");
 
-        // Start TCP (HTTP) server
-        server.begin();
-        Serial.println("TCP server started");
+    // Add service to MDNS-SD
+    MDNS.addService("http", "tcp", 80);
+}
 
-        // Add service to MDNS-SD
-        MDNS.addService("http", "tcp", 80);
+void loop(void)
+{
+    // Check if a client has connected
+    WiFiClient client = server.available();
+    if (!client) {
+        return;
+    }
+    //Serial.println("");
+    //Serial.println("New client");
+
+    // Wait for data from client to become available
+    while(client.connected() && !client.available()){
+        delay(1);
     }
 
-    void loop(void)
-    {
-        // Check if a client has connected
-        WiFiClient client = server.available();
-        if (!client) {
-            return;
-        }
-        //Serial.println("");
-        //Serial.println("New client");
-
-        // Wait for data from client to become available
-        while(client.connected() && !client.available()){
-            delay(1);
-        }
-
-        // Read the first line of HTTP request
-        String req = client.readStringUntil('\r');
+    // Read the first line of HTTP request
+    String req = client.readStringUntil('\r');
+    //Serial.println(req);
+    // First line of HTTP request looks like "GET /path HTTP/1.1"
+    // Retrieve the "/path" part by finding the spaces
+    int addr_start = req.indexOf(' ');
+    int addr_end = req.indexOf(' ', addr_start + 1);
+    if (addr_start == -1 || addr_end == -1) {
+        //Serial.print("Invalid request: ");
         //Serial.println(req);
-        // First line of HTTP request looks like "GET /path HTTP/1.1"
-        // Retrieve the "/path" part by finding the spaces
-        int addr_start = req.indexOf(' ');
-        int addr_end = req.indexOf(' ', addr_start + 1);
-        if (addr_start == -1 || addr_end == -1) {
-            //Serial.print("Invalid request: ");
-            //Serial.println(req);
-            return;
-        }
-        req = req.substring(addr_start + 1, addr_end);
-        //Serial.print("Request: ");
-        Serial.println(req);
-        String s;
-        if (req == "/")
-        {
-            IPAddress ip = WiFi.localIP();
-            String ipStr = String(ip[0]) + '.' + String(ip[1]) + '.' + String(ip[2]) + '.' + String(ip[3]);
-            s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>Hello from ESP32 at ";
-            s += ipStr;
-            s += "</html>\r\n\r\n";
-            Serial.println("Sending 200");
-            client.println(WiFi.localIP());
-        }
-        else if(req == "/btn/F")
-        {
-        digitalWrite(INA, LOW);
-        ledcWrite(0, 110);
-        digitalWrite(INB, LOW);
-        ledcWrite(1, 100);
-        }
-        else if(req == "/btn/B")
-        {
-        digitalWrite(INA, HIGH);
-        ledcWrite(0, 155);
-        digitalWrite(INB, HIGH);
-        ledcWrite(1, 155);
-        }
-        else if(req == "/btn/L")
-        {
-        digitalWrite(INA, LOW);
-        ledcWrite(0, 100);
-        digitalWrite(INB, HIGH);
-        ledcWrite(1, 155);
-        }
-        else if(req == "/btn/R")
-        {
-        digitalWrite(INA, HIGH);
-        ledcWrite(0, 155);
-        digitalWrite(INB, LOW);
-        ledcWrite(1, 100);
-        }
-        else if(req == "/btn/S")
-        {
-        digitalWrite(INA, LOW);
-        ledcWrite(0, 0);
-        digitalWrite(INB, LOW);
-        ledcWrite(1, 0);
-        }
-        else if(req == "/btn/p")
-        {
-        Serial.write('p');
-        ledcWrite(channel_PWM, set_angle(180));
-        }
-        else if(req == "/btn/q")
-        {
-        Serial.write('q');
-        client.println("q");
-        }
-        else if(req == "/btn/x")
-        {
-        ledcWrite(channel_PWM, set_angle(160));
-        }
-
+        return;
     }
-
-    int set_angle(int angle)
+    req = req.substring(addr_start + 1, addr_end);
+    //Serial.print("Request: ");
+    Serial.println(req);
+    String s;
+    if (req == "/")
     {
-    int servo_angle = map(angle, 0, 180, 25, 128);
-    return servo_angle;
+        IPAddress ip = WiFi.localIP();
+        String ipStr = String(ip[0]) + '.' + String(ip[1]) + '.' + String(ip[2]) + '.' + String(ip[3]);
+        s = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>Hello from ESP32 at ";
+        s += ipStr;
+        s += "</html>\r\n\r\n";
+        Serial.println("Sending 200");
+        client.println(WiFi.localIP());
+    }
+    else if(req == "/btn/F")
+    {
+      digitalWrite(INA, LOW);
+      ledcWrite(2, 110);
+      digitalWrite(INB, LOW);
+      ledcWrite(1, 100);
+    }
+    else if(req == "/btn/B")
+    {
+      digitalWrite(INA, HIGH);
+      ledcWrite(2, 155);
+      digitalWrite(INB, HIGH);
+      ledcWrite(1, 155);
+    }
+    else if(req == "/btn/L")
+    {
+      digitalWrite(INA, LOW);
+      ledcWrite(2, 100);
+      digitalWrite(INB, HIGH);
+      ledcWrite(1, 155);
+    }
+    else if(req == "/btn/R")
+    {
+      digitalWrite(INA, HIGH);
+      ledcWrite(2, 155);
+      digitalWrite(INB, LOW);
+      ledcWrite(1, 100);
+    }
+    else if(req == "/btn/S")
+    {
+      digitalWrite(INA, LOW);
+      ledcWrite(2, 0);
+      digitalWrite(INB, LOW);
+      ledcWrite(1, 0);
+    }
+    else if(req == "/btn/p")
+    {
+      Serial.write('p');
+      ledcWrite(channel_PWM, set_angle(180));
+    }
+    else if(req == "/btn/q")
+    {
+      Serial.write('q');
+      client.println("q");
+    }
+    else if(req == "/btn/x")
+    {
+      ledcWrite(channel_PWM, set_angle(160));
     }
 
+}
+
+int set_angle(int angle)
+{
+  int servo_angle = map(angle, 0, 180, 25, 128);
+  return servo_angle;
+}
 ```
 
 ## Test Code for Kidsblock
 
-![](media/ks5002-1.png)
+![Img](./media/img-20250217103444.png)
 
-Build up the soccer goal with building blocks and place it at fixed
-location, connect the robot car through Wifi.
+Build up the soccer goal with building blocks and place it at fixed location, connect the robot car through Wifi.
 
-Put a small soccer in the middle of the claw of the robot car, press
-and hold down the button ![](media/c6d6fb5f7473c0aabcdeddb580b740ed.png) to enable the claw to hold the soccer, then press buttons ![](media/5f365b2083f264b4ecfc5e68d07df287.png) to adjust the car’s movement direction , so as to put the soccer close to the soccer goal. At last, release the button ![](media/c6d6fb5f7473c0aabcdeddb580b740ed.png) to allow the soccer to drop on the
-floor and roll to the soccer goal. If not, repeat the above step to shoot the goal.
+Put a small soccer in the middle of the claw of the robot car, press and hold down the button ![](media/c6d6fb5f7473c0aabcdeddb580b740ed.png) to enable the claw to hold the soccer, then press buttons ![](media/5f365b2083f264b4ecfc5e68d07df287.png) to adjust the car’s movement direction , so as to put the soccer close to the soccer goal. At last, release the button ![](media/c6d6fb5f7473c0aabcdeddb580b740ed.png) to allow the soccer to drop on the floor and roll to the soccer goal. If not, repeat the above step to shoot the goal.
 
 If your friend owns this kind of soccer robot, you guys can hold a soccer match. It sounds amazing, right?.

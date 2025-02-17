@@ -41,6 +41,8 @@ The Keyestudio trademark and logo are the copyright of **KEYES DIY ROBOT co.,LTD
 
 # Introduction
 
+![Img](./media/img-20250217104926.png)
+
 The Beetlebot smart robot, compatible with LEGO building blocks, is a STEM educational product which can automatically dodge obstacles, follow black lines and light to move. Besides, it has three cool forms such as the soccer robot, the siege robot, the handling robot. As for beginners, they can create whatever they want by LEGO building blocks.
 
 Various improvements have been made on the Beetlebot car in comparison with other smart cars. It integrates a motor driver and a large number of sensors and is easy to assemble.
@@ -86,8 +88,7 @@ Please check the list to ensure that all parts are intact. If you find missing o
 |6 |![Img](./media/img-20250213084305.png) |LEGO Bulk Lot | 1 |
 |7 |![Img](./media/img-20250213084335.png) | Acrylic Board | 1 |
 | 8|![Img](./media/img-20250213084351.png) | MD0487 Acrylic Board for Ultrasonic Sensor | 1 |
-| 9|![Img](./media/img-20250213084421.png)
-| Acrylic Board for Servo | 1 |
+| 9|![Img](./media/img-20250213084421.png)| Acrylic Board for Servo | 1 |
 |10 |![Img](./media/img-20250213084508.png) | 4.5V 200R Motor | 2 |
 |11 |![Img](./media/img-20250213084524.png) | 8*8 Dot Matrix Display | 1 |
 |12 |![Img](./media/img-20250213084542.png) | Aluminum Block | 2 |
@@ -129,12 +130,12 @@ Click to download to all resources such as project codes and libraries.
 
 - [Library](Library.zip)
 
-- [Other_Important_Informations](Other_Important_Informations.zip) (include: Android APP, drivers) 
+- [Other_Important_Informations](Other_Important_Informations.zip) (include: Android APP, drivers and drv8833) 
 
 
 # ESP32 Main Control Board
 
-![image-20230505154936028](./Arduino/media/image-20230505154936028.png)
+![image-20230505154936028](./media/image-20230505154936028.png)
 
 **Description:**
 
@@ -176,7 +177,7 @@ At the same time, it also integrates with TSMC's low-power 40nm technology, so t
 
   - Weight: 9.3g
     
-    ![image-20230505155004949](./Arduino/media/image-20230505155004949.png)
+    ![image-20230505155004949](./media/image-20230505155004949.png)
 
 **Pin out**
 
@@ -236,6 +237,8 @@ Install
 
 ![](media/image3.png)
 
+Complete
+
 ![](media/image4.png)
 
 **Step 2:**
@@ -247,6 +250,8 @@ Components Required
 Install
 
 ![](media/image6.png)
+
+Complete
 
 ![](media/image7.png)
 
@@ -260,6 +265,8 @@ Install
 
 ![](media/image9.jpeg)
 
+Complete
+
 ![](media/image10.jpeg)
 
 **Step 4:**
@@ -271,6 +278,8 @@ Components Required
 Install
 
 ![](media/image12.png)
+
+Complete
 
 ![](media/image13.png)
 
@@ -301,6 +310,8 @@ Connect the motor and the 8*8 dot matrix display to PCB boards
 
 ![](media/image17.png)
 
+Complete
+
 ![](media/image18.png)
 
 **Step 6:**
@@ -312,6 +323,8 @@ Components Required
 Install
 
 ![](media/image20.png)
+
+Complete
 
 ![](media/image21.png)
 
@@ -325,6 +338,8 @@ Install
 
 ![](media/image23.png)
 
+Complete
+
 ![](media/image24.png)
 
 **Step 8:**
@@ -336,6 +351,8 @@ Components Required
 Install
 
 ![](media/image26.png)
+
+Complete
 
 ![](media/image27.png)
 
@@ -354,6 +371,8 @@ Adjust the angle of the servo to 90 degree before installing the car
 | Orange line | S1（GPIO4） |
 
 **Method 1：Arduino code**
+
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About Arduino IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#about-arduino-ide)**
 
 ```c++
 #include <Arduino.h>
@@ -381,23 +400,29 @@ void loop() {
 }
 ```
 
-In folder **..\Codes\180° Servo Angle initialization_Code** , open file **Servo_Angle_initialization_Codes.ino** , or copy and paste the above test code into the Arduino IDE.
 
-How to get it
+How to get it ?
+
+In folder **..\Codes\180° Servo Angle initialization_Code** , open file **180_Servo_Angle_initialization.ino** , or copy and paste the above test code into the Arduino IDE.
 
 ![](media/image29.png)
 
 **Method 2：KidsBlock(Scratch) code**
 
-Open file **180°_Servo_Angle_initialization.sb3** with KidsBlock IDE, in folder **..\Codes\180° Servo Angle initialization_Codes**.
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About KidsBlock IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/KidsBlock%28Scratch%29%20Tutorial/KidsBlock%28Scratch%29_Tutorial.html#about-kidsblock-ide)**
 
 ![](media/image30.png)
 
-How to get it
+How to get it?
+
+Open file **180°_Servo_Angle_initialization.sb3** with KidsBlock IDE, in folder **..\Codes\180° Servo Angle initialization_Codes**.
+
 
 ![](media/image31.png)
 
 **Method 3：Python code**
+
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About MicroPython IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/MicroPython%20Tutorial/MicroPython_Tutorial.html#about-micropython-ide)**
 
 ```python
 from machine import Pin, PWM
@@ -413,13 +438,17 @@ time.sleep(1)
 pwm.duty(77)
 time.sleep(1)
 ```
-In folder **..\Codes\180° Servo Angle initialization_Codes** , open file **180°_Servo_Angle_initialization.sb3** , or copy and paste the above test code into the Thonny IDE.
 
-How to get it
+How to get it?
+
+In folder **..\Codes\180° Servo Angle initialization_Codes** , open file **180°_Servo_Angle_initialization.sb3** , or copy and paste the above test code into the Thonny IDE.
 
 ![](media/image32.png)
 
 Install
+
+![Img](./media/img-20250217082142.png)
+
 
 ![](media/image33.png)
 
@@ -433,6 +462,8 @@ Install
 
 ![](media/image35.png)
 
+Complete
+
 ![](media/image36.png)
 
 **Step 11**
@@ -445,11 +476,13 @@ Install
 
 ![](media/image38.png)
 
+Complete
+
 ![](media/image39.png)
 
 **Wire up**
 
-Wire up the ultrasonic sensor Wire up the servo
+Wire up the ultrasonic sensor 
 
 | Ultrasonic Sensor |     PCB      |
 | :---------------: | :----------: |
@@ -459,6 +492,8 @@ Wire up the ultrasonic sensor Wire up the servo
 |        Gnd        |      G       |
 
 ![](media/image40.jpeg)
+
+Wire up the servo
 
 |    Servo    |     PCB     |
 | :---------: | :---------: |
@@ -487,6 +522,8 @@ Wire up the right photoresistor
 | S                   | S（GPIO35） |
 
 ![](media/image43.jpeg)
+
+Original installation completed diagram
 
 ![](media/image44.jpeg)
 

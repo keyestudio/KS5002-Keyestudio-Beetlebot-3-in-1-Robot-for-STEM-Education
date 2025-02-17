@@ -48,13 +48,13 @@ Then click ![](media/770292e2b4d7555030eaf7951cf58aec.png)to switch the mode ![]
 
 ### Project 01: 6812 RGB
 
-**Description：**
+**1. Description：**
 
 There are 4 RGB LEDs can be widely used in the decoration of buildings, bridges, roads, gardens, courtyards and so on by colors adjustment.
 
 In this experiment, we will demonstrate different lighting effects with them.
 
-**Component Knowledge**
+**2. Component Knowledge**
 
 **SK6812RGB:**
 
@@ -64,13 +64,13 @@ The data protocol adopts a single-wire zero-code communication method. After the
 
 ![](media/86e292d0666046b72a1e0e68adfb17e8.png)
 
-**Test Code：**
+**3. Test Code：**
 
 The SK6812RGB on the PCB board is controlled by the GPIO 14 of the ESP32 board.
 
 ![Img](./media/img-20250214083212.png)
 
-**Test Result**
+**4. Test Result**
 
 Upload the code to the ESP32 board(If the upload code is not successful, you can press and hold the Boot button on the ESP32 motherboard after clicking ![Img](./media/img-20250214082916.png) , and then release the Boot button when the upload progress percentage appears![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png).
 
@@ -82,7 +82,7 @@ Power up with a USB cable, then 4 RGB LEDs will show different colors
 
 ### Project 02: Play Music
 
-1.**Description：**
+**1. Description：**
 
 There is a power amplifier component on the expansion board, which is often used to play music and serve as an external amplifying device for music playback devices. 
 
@@ -100,7 +100,7 @@ The speaker component on the PCB board is controlled by the GPIO 2 of the ESP32 
 
 ![](media/b4e6c42353e9687cdac20a5505b87cd4.png)
 
-**4.Test Result**
+**4. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
@@ -110,7 +110,7 @@ Power up with a USB cable, then the speaker module on the PCB board will play a 
 
 ### Project 03: 8\*8 Dot Matrix
 
-1.**Description：**
+**1. Description：**
 
 Composed of LED emitting tube diodes, the 8*8 LED dot matrix are applied widely to public information display like advertisement screen and bulletin board, by controlling LED to show words, pictures and videos, etc.
 
@@ -176,7 +176,7 @@ As shown below, the left button of the mouse is for selection while the right is
 
 ![](media/32e674da893cc93cd1330a9da73269cb.png)
 
-**Wiring up：**
+**3. Wiring up：**
 
 <table border="1">
 <tbody>
@@ -203,13 +203,13 @@ As shown below, the left button of the mouse is for selection while the right is
 </tbody>
 </table>
 
-**3. Test Code：**
+**4. Test Code：**
 
 The 8\*8 dot matrix is controlled by GPIO21（SDA）and GPIO22（SCL）of the ESP32 board.
 
 ![Img](./media/img-20250214083644.png)
 
-**4. Test Result**
+**5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
@@ -219,13 +219,13 @@ Power up by a USB cable, the 8\*8 dot matrix display will show show patterns.
 
 ### Project 04: Servo Rotation
 
-**Description：**
+**1. Description：**
 
 There are two servos on the car. We take the servo connected to pin D9 as an example. 
 
 The servo is a motor that can rotate very accurately. It has been widely applied to toy cars, remote control helicopters, airplanes, robots and other fields. In this project, we will use the Nano motherboard to control the servo to spin.
 
-**Knowledge：**
+**2. Knowledge：**
 
 ![](media/99830768916233a9c5900ac399006c17.png)
 
@@ -241,7 +241,7 @@ In general, servo has three lines in brown, red and orange. The brown wire is gr
 
 ![](media/35084ae289a08e35bdb8c89ceb134ba4.png)
 
-**Wire up：**
+**3. Wire up：**
 
 <table border="1">
 <tbody>
@@ -264,13 +264,13 @@ In general, servo has three lines in brown, red and orange. The brown wire is gr
 </tbody>
 </table>
 
-**Test Code：**
+**4. Test Code：**
 
 The servo for controlling the ultrasonic sensor is controlled by the GPIO4 of the ESP32 board.
 
 ![Img](./media/img-20250214083749.png)
 
-**Test Result：**
+**5. Test Result：**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
@@ -278,13 +278,13 @@ Power up with a USB cable, open the monitor and set baud rate to 115200. Then th
 
 ### Project 05: Motor Driving and Speed Control 
 
-**1.Description：**
+**1. Description：**
 
 There are many ways to drive motors. This car uses the most commonly used DRV8833 motor driver chip, which provides a dual-channel bridge electric driver for toys, printers and other motor integration applications.
 
 In this experiment, we use the DRV8833 motor driver chip on the expansion board to drive the two DC motors, and demonstrate the effect of forward, backward, left-turning, and right-turning.
 
-2.**Knowledge：**
+**2. Knowledge：**
 
 DRV8833 motor driver chip: Dual H-bridge motor driver with current control function, can drive two DC motors, one bipolar stepper motor, solenoid valve or other inductive loads. Each H-bridge includes circuitry to regulate or limit winding current.
 
@@ -294,9 +294,10 @@ An internal shutdown function with a fault output pin is used for over-current a
 
 ![](media/9cb8b7c00f814e367040f2ed4a3c9f4a.png)
 
-If you want to get insight to it, you can check the specification of this chip. Just browse it in the“Attachments”folder.
+If you want to get insight to it, you can check the specification of this chip. Just browse it in the “Other_Important_Informations” folder.
 
-![](media/f7674a914ec2cbe10f1ec6446dc66c22.png)
+![Img](./media/img-20250214163305.png)
+
 
 **3. Specification：**
 
@@ -387,7 +388,7 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 </table>
 
 
-5.**Test Code：**
+**5. Test Code：**
 
 ![Img](./media/img-20250214083942.png)
 
@@ -402,7 +403,7 @@ Place batteries in the car, and turn the power switch to ON end and power up. Th
 ### Project 06: Ultrasonic Sensor
 
 
-**1.Description：**
+**1. Description：**
 
 There is an ultrasonic sensor on the car. It is a very affordable distance-measuring sensor. 
 
@@ -442,7 +443,7 @@ The HC-SR04 ultrasonic sensor has four pins: Vcc, Trig, Echo and GND.
 
 The Vcc pin provides power generating ultrasonic pulses and is connected to Vcc/+5V. The GND pin is grounded/GND. The Trig pin is where the Arduino sends a signal to start the ultrasonic pulse. The Echo pin is where the ultrasonic sensor sends information about the duration of the ultrasonic pulse stroke to the Arduino control board.
 
-**Wiring Up**
+**3. Wiring Up**
 
 <table border="1">
 <tbody>
@@ -469,13 +470,13 @@ The Vcc pin provides power generating ultrasonic pulses and is connected to Vcc/
 </tbody>
 </table>
 
-**3. Test Code：**
+**4. Test Code：**
 
 The pin Trig and Echo of the ultrasonic sensor are controlled by the GPIO5 and GPIO18 of the ESP32 board.
 
 ![Img](./media/img-20250214084121.png)
 
-**4. Test Result：**
+**5. Test Result：**
 
 Upload the test code to the ESP32 board, power up with a USB cable, open the serial monitor to click ![](media/5aa7c3468c7015b37236cd95c06280d8.png) and set baud rate to 115200.
 
@@ -485,71 +486,23 @@ When you move an object in front of the ultrasonic sensor, it will detect the di
 
 ### Project 07: Follow Me
 
-**1.Description：**
+**1. Description：**
 
 In the above experiments, we have learned about the 8*8 dot matrix, motor drivers and speed regulation, ultrasonic sensors, servos and other hardware. In this experiment, we will combine them to create a follow car with the ultrasonic sensor. The car can follow an object to move through measuring distance.
 
-2.**Working Principle：**
+**2. Working Principle：**
 
-<table border="1">
-<tbody>
-<tr class="odd">
-<td>Detection</td>
-<td>Detect the front distance</td>
-<td>Distance（unit：cm）</td>
-</tr>
-<tr class="even">
-<td>Condition 1</td>
-<td>Distance＜8</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>State</td>
-<td>Go back（set PWM to 100）</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Condition 2</td>
-<td>8≤distance&lt;13</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>State</td>
-<td>stop</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Condition 3</td>
-<td>13≤distance&lt;35</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>State</td>
-<td>Go forward（set PWM to 100）</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Condition 4</td>
-<td>distance≥35</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>State</td>
-<td>stop</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+![Img](./media/img-20250217110015.png)
 
-3.**Flow Chart：**
+**3. Flow Chart：**
 
 ![](media/e1ded45b4454e64b7ff419bad285cb3a.png)
 
-4.**Test Code**
+**4. Test Code**
 
 ![Img](./media/img-20250214090605.png)
 
-5.**Test Result**
+**5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
@@ -557,118 +510,13 @@ Place batteries in the car and turn the power switch to ON end and power up. The
 
 ### Project 08: Avoid obstacles
 
-**1.Description：**
+**1. Description：**
 
 In this project, we will take advantage of the ultrasonic sensor to detect the distance away from the obstacle so as to avoid them
 
 **2. Working Principle：**
 
-<table border="1">
-<tbody>
-<tr class="odd">
-<td></td>
-<td>8*8 Dot matrix display</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Set servo to 90°</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><strong>loop</strong></td>
-<td>Detect the distance away from the obstacle（unit: cm）</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Condition 1</td>
-<td>State</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><strong>0&lt;distance＜10</strong></td>
-<td>Stop</td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>Show the“stop”pattern</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Set the servo to 180°</td>
-<td>Distance away form the obstacle：a1（unit：cm）</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>Set the servo to 0°</td>
-<td>Distance away form the obstacle：a2（unit：cm）</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Condition 2</td>
-<td>State</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td><strong>a1＜a2</strong></td>
-<td>Car turns right（set PWM to 200）</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td>show“turning right”pattern</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td>Set servo to 90°</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td><strong>a1≥a2</strong></td>
-<td>Turn left（set PWM to 200）</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td>display“left turning”pattern</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td>Set servo to 90°</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><strong>distance≥10</strong></td>
-<td>The 8*8 dot matrix display shows“going forward”pattern</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td>Go forward（set PWM to 200）</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+![Img](./media/img-20250214170003.png)
 
 **3. Flow Chart：**
 
@@ -685,7 +533,7 @@ Upload the test code to the ESP32 board, put batteries in the battery holder, tu
 
 ### Project 09: Line Tracking Sensor
 
-**1.Description：**
+**1. Description：**
 
 There are two IR line tracking sensors on the car. They are actually two pairs of ST188L3 infrared tubes and used to detect black and white lines. In this project, we will make a line tracking car
 
@@ -753,11 +601,11 @@ The sensitivity can be adjusted by rotating the potentiometer. When the indicato
 
 ### Project 10: Line Tracking
 
-**1.Description：**
+**1. Description：**
 
 We’ve introduced the knowledge of motor drivers, speed regulation, and infrared line tracking. In this experiment, the car will perform different actions according to the values transmitted by the infrared tracking. 
 
-2.**Working Principle：**
+**2. Working Principle：**
 
 <table border="1">
 <tbody>
@@ -794,15 +642,15 @@ We’ve introduced the knowledge of motor drivers, speed regulation, and infrare
 </tbody>
 </table>
 
-3.**Flow Chart：**
+**3. Flow Chart：**
 
 ![](media/c6a0ace5faa949e4fb24fc511d179e08.png)
 
-4.**Test Code：**
+**4. Test Code：**
 
 ![Img](./media/img-20250214091402.png)
 
-5.**Test Result：**
+**5. Test Result：**
 
 Upload the test code to the ESP32 board, put batteries in the battery holder, turn the power switch to the ON end, power up and put the car on a map we provide. Then it will perform different functions via values sent by line tracking sensors
 
@@ -867,43 +715,15 @@ When the light intensifies, the analog value will get increased; on the contrary
 
 ### Project 12: Light Following Car
 
-1.**Description：**
+**1. Description：**
 
 We have learned the working principle of photoresistor, motor and speed regulation. In this experiment, we will use a photoresistor to detect the intensity of light as as to achieve the light following effect.
 
-2.**Working Principle：**
+**2. Working Principle：**
 
-<table border="1">
-<tbody>
-<tr class="odd">
-<td>Analog value of the left sensor</td>
-<td>Analog value of the right sensor</td>
-<td>Function</td>
-</tr>
-<tr class="even">
-<td>&gt;3000</td>
-<td>&gt;3000</td>
-<td>Move forward</td>
-</tr>
-<tr class="odd">
-<td>&gt;3000</td>
-<td>≤3000</td>
-<td>Move to left</td>
-</tr>
-<tr class="even">
-<td>≤3000</td>
-<td>&gt;3000</td>
-<td>Move to right</td>
-</tr>
-<tr class="odd">
-<td>&lt;3000</td>
-<td>&lt;3000</td>
-<td>Stop</td>
-</tr>
-</tbody>
-</table>
+![Img](./media/img-20250214165656.png)
 
-3.**Wiring up：**
+**3. Wiring up：**
 
 <table border="1">
 <tbody>
@@ -940,11 +760,11 @@ We have learned the working principle of photoresistor, motor and speed regulati
 </tbody>
 </table>
 
-4.**Flow Chart：**
+**4. Flow Chart：**
 
 ![](media/8a5840a7da0fc461c19be88f0283ce50.png)
 
-5.**Test Code：**
+**5. Test Code：**
 
 The left and right photoresistors are controlled by GPIO34 and GPIO35 of the ESP32 board.
 
@@ -956,7 +776,7 @@ Upload the test code to the ESP32 board, put batteries in the battery holder, tu
 
 ### Project 13: IR Remote Control
 
-**1.Description：**
+**1. Description：**
 
 Infrared remote controls are everywhere in daily life. It is used to control various home appliances, such as TV, speakers, video recorders and satellite signal receivers.
 
@@ -964,7 +784,7 @@ The remote control is composed of an IR emitter, an IR receiver and a decoding M
 
 In this experiment, we will combine the IR receiver and the IR remote control to read key values and show them on the serial monitor.
 
-2.**Knowledge：**
+**2. Knowledge：**
 
 **IR Remote Control：**
 
@@ -1042,13 +862,13 @@ The command redundancy is still preserved. Therefore each address can still hand
 
 Keep in mind that 256 address values of the extended protocol are invalid because they are in fact normal NEC protocol addresses. Whenever the low byte is the exact inverse of the high byte it is not a valid extended address. 
 
-**3.Test Code：**
+**3. Test Code：**
 
 The IR receiver on the PCB board is controlled by GPIO19 of the ESP32 board.
 
 ![Img](./media/img-20250214091912.png)
 
-**4.Test Result：**
+**4. Test Result：**
 
 Upload the test code to the ESP32 board, power up with a USB cable, open the serial monitor to click ![](media/5aa7c3468c7015b37236cd95c06280d8.png) and set to 115200.
 
@@ -1062,7 +882,7 @@ Press a key on the IR remote control, you will view a code on the serial monitor
 
 ### Project 14: IR Remote Control Car
 
-**1.Description：**
+**1. Description：**
 
 In the above experiment, we have learned about the knowledge of the 8*8 dot matrix display, the motor driver and speed regulation, the infrared receiver and the infrared remote control. In this experiment, we will use the infrared remote control and the infrared receiver to control the car.
 
@@ -1076,15 +896,15 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 | ![img](./media/wps52.jpg) |  FFC23D   | Turn right<br />Show “right turning” pattern |
 | ![img](./media/wps53.jpg) |  FF02FD   | stop<br />show “stop” pattern                |
 
-3.**Flow Chart：**
+ **3. Flow Chart：**
 
 ![](media/b8ecdfd8dbc04c43021b09bd2c6a48f0.png)
 
-4.**Test Code：**
+ **44. Test Code：**
 
 ![Img](./media/img-20250214092144.png)
 
-5.**Test Result：**
+ **5. Test Result：**
 
 Upload the test code to the ESP32 motherboard, install batteries, turn the power switch to the ON end, power up and press a key of the IR remote control. Then the car will make the corresponding movement.
 
@@ -1092,7 +912,7 @@ Upload the test code to the ESP32 motherboard, install batteries, turn the power
 
 ### Project 15: Read APP Button String
 
-**1.Description：**
+**1. Description：**
 
 In the previous experiments, we have learned about the three modes of ESP32: WIFI Station mode, WIFI AP mode and WIFI AP+Station mode. Then in this chapter, we will use the WIFI Station mode of ESP32 to control a multi-function car via app
 
@@ -1105,7 +925,7 @@ In this experiment, we first use the WIFI Station mode of ESP32 to read the char
 | ![](media/729232b0c2d2c01984808289b222890c.png) | ![image-20230505170459495](media/image-20230505170459495.png) | ![image-20230505170504241](media/image-20230505170504241.png)![image-20230505170507293](media/image-20230505170507293.png) |
 | USB cable x1                                    | ESP32\*1                                                     | Cellphone/iPad\*1                                            |
 
-3.**Install APP**
+**3. Install APP**
 
 **Android system：**
 
@@ -1134,7 +954,7 @@ Search Beetlebot，click“![](media/962a57f92b78eea1f0e3e81463497a9c.png)”to 
 
 The installation instructions are similar with Android system.
 
-4.**Test Code：**
+ **4. Test Code：**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -1165,13 +985,13 @@ If the monitor doesn’t display anything, press reset button to reboot
 
 ### Project 16: WiFi Control 8\*8 Dot Matrix Display  
 
-**1.Description：**
+**1. Description：**
 
 In this experiment, we will use the WIFI Station mode to control the 8\*8 dot matrix display on the car through APP and WIFI.
 
-**2.Install APP**
+**2. Install APP**
 
-**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://url/) .
+**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 15：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/KidsBlock%28Scratch%29%20Tutorial/KidsBlock%28Scratch%29_Tutorial.html#project-15-read-app-button-string) .
 
 **3. Test Code：**
 
@@ -1181,27 +1001,42 @@ In this experiment, we will use the WIFI Station mode to control the 8\*8 dot ma
 
 **4. Test Result**
 
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
+
+Place batteries in the car, turn the power switch to ON end and power up.
+
 Open app, click ![](media/db52b661d5b22528618e9c14aefa367e.png), then the 8\*8 display will show the forward pattern; click ![](media/6abdf809090a56fb251e9ee4d44c70f4.png), the display will show the stop pattern; click ![](media/aca24e8c4a86a9a2702160be4a4d9970.png) to show the backward pattern
+
+If the monitor doesn’t display anything, press reset button to reboot
+
+![](media/1fd21fafd84d2b529931a89d21a03d6a.png)
 
 ### Project 17: WiFi Control Multi-purpose Car
 
-1.**Description**
+**1. Description**
 
 In this project we will demonstrate how to control the car with app
 
-**2.Install APP**
+**2. Install APP**
 
-**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://url/) .
+**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 15：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/KidsBlock%28Scratch%29%20Tutorial/KidsBlock%28Scratch%29_Tutorial.html#project-15-read-app-button-string) .
 
-3.**Test Code**
+**3. Test Code**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
 ![Img](./media/img-20250214093849.png)
 
-4.**Test Result**
+**4. Test Result**
+
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
+
+Place batteries in the car, turn the power switch to ON end and power up.
 
 Operate the APP according to the figure below to control the WiFi multi-function car
 
 ![](media/d3289f9c64ddb3b1e8129b0d6649b0dd.png)
 
+If the monitor doesn’t display anything, press reset button to reboot
+
+![](media/1fd21fafd84d2b529931a89d21a03d6a.png)

@@ -240,17 +240,17 @@ Then press the **Enter** on the keyboard, and the “Shell” shows **hello worl
 
 #### Test Online Running
 
-Connect the LED and a 220Ω resistor to the ESP32 board, and connect the ESP32 board to your computer via USB cable.
+The car is fully assembled and wired, and connect the ESP32 board to your computer via USB cable.
 
-![Img](./media/img-20241226173246.png)
+![Img](./media/img-20250214174135.png)
 
-In Files, open **2-3-01_Hello_LED!.py**.
+In Files, open **Project_01_6812_RGB.py**.
 
 ![Img](./media/img-20241226172701.png)
 
-Click ![Img](./media/img-20241226133629.png) to run the code, and you will see the red LED lights up for 1 second and goes off for 1 second, repeatedly.
+Click ![Img](./media/img-20241226133629.png) to run the code, and you will see the 6812 RGB lights up , repeatedly.
 
-![Img](./media/img-20240823164506.png)
+![Img](./media/img-20250214173826.png)
 
 Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
@@ -262,7 +262,7 @@ Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 First make sure the Thonny IDE is not in **Online** state. Click ![Img](./media/img-20241226133854.png) to exit online running.
 
-In Files, open **2-3-01_Hello_LED!.py** and choose **File** --> **Save as...** 
+In Files, open **Project_01_6812_RGB.py** and choose **File** --> **Save as...** 
 
 ![Img](./media/img-20241226172701.png)
 
@@ -280,9 +280,14 @@ Name the file to **main\.py** (it has to be this name, otherwise the offline run
 
 After uploading, unplug the USB cable connecting the ESP32 main board to the computer.
 
-Then power on again (connect the ESP32 board to the computer via USB cable), it will automatically run the program in main\.py, you can see the red LED turns on for 1 second, then off for 1 second, repeatedly.
+Then power on again (connect the ESP32 board to the computer via USB cable), it will automatically run the program in main\.py, and you will see the 6812 RGB lights up , repeatedly.
 
-![Img](./media/img-20240823164506.png)
+![Img](./media/img-20250214173826.png)
+
+If don't see the 6812 RGB lights up, press reset button to reboot(<span style="color: rgb(255, 76, 65);">**All the experiments below are the same**</span>).
+
+![Img](./media/img-20250214183713.png)
+
 
 **Method ②**: Run the newly written program offline
 
@@ -290,9 +295,9 @@ Connect the ESP32 board to your computer via Micro USB.
 
 ![Img](./media/img-20241226175528.png)
 
-In Files, open **2-3-01_Hello_LED!.py** and copy and paste it to a new program **<untitled\>**. You may click ![Img](./media/img-20241226175719.png) to create a new script <untitled\>.
+In Files, open **Project_01_6812_RGB.py** and copy and paste it to a new program **<untitled\>**. You may click ![Img](./media/img-20241226175719.png) to create a new script <untitled\>.
 
-![Img](./media/img-20241226180013.png)
+![Img](./media/img-20250214175629.png)
 
 Click ![Img](./media/img-20241226180051.png) to save it in **MicroPython device**.
 
@@ -306,9 +311,9 @@ Name the file to **main\.py** (it has to be this name, otherwise the offline run
 
 After uploading, unplug the USB cable connecting the ESP32 main board to the computer.
 
-Then power on again (connect the ESP32 board to the computer via USB cable), it will automatically run the program in main\.py, you can see the red LED turns on for 1 second, then off for 1 second, repeatedly.
+Then power on again (connect the ESP32 board to the computer via USB cable), it will automatically run the program in main\.py, and you will see the 6812 RGB lights up , repeatedly.
 
-![Img](./media/img-20240823164506.png)
+![Img](./media/img-20250214173826.png)
 
 ---
 
@@ -333,7 +338,7 @@ For some projects, libraries are required. Therewith, we need to import needed l
 
 ![Img](./media/img-20250103165338.png)
 
-5\. Click the **gfx\.py** file in the ***MicroPython_Libray*** folder to “***Upload to/***” the “**MicroPython device**”.
+5\. Click the **ht16k33\.py** file in the ***MicroPython_Libray*** folder to “***Upload to/***” the “**MicroPython device**”.
 
 ![Img](./media/img-20250103171456.png)
 
@@ -403,7 +408,7 @@ while True:
     time.sleep_ms(500)
 ```
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the RGB LEDs will will show red, green, blue and white color then go off, loop alternately
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the RGB LEDs will show red, green, blue and white color then go off, loop alternately
 
 ![](media/0d23e6891643e73ce98dc2f93def946d.jpeg)
 
@@ -665,9 +670,9 @@ Place batteries in the battery holder, turn the power switch to ON end and power
 
 Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the servo rotate from 0° to 180°, then from 180° to 0°, loop alternately.
 
-Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
-![](media/4991039a1f318584a098e274663485b0.png)
+
 
 ### Project 05: Motor Driving and Speed Control 
 
@@ -687,9 +692,10 @@ An internal shutdown function with a fault output pin is used for over-current a
 
 ![](media/9cb8b7c00f814e367040f2ed4a3c9f4a.png)
 
-If you want to get insight to it, you can check the specification of this chip. Just browse it in the“Attachments”folder.
+If you want to get insight to it, you can check the specification of this chip. Just browse it in the “Other_Important_Informations” folder.
 
-![](media/f7674a914ec2cbe10f1ec6446dc66c22.png)
+![Img](./media/img-20250214163209.png)
+
 
  **3. Specification：**
 
@@ -803,7 +809,6 @@ Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](
 
 Press“Ctrl+C”or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
 
-![](media/1abf8c357085069e213814914cc278ec.png)
 
 ### Project 06: Ultrasonic Sensor
 
@@ -904,11 +909,12 @@ while True:
 
  **5. Test Result**
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the shell monitor will print distance value between the ultrasonic sensor and the object; press“Ctrl+C”or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the shell monitor will print distance value between the ultrasonic sensor and the object.
 
-![](media/8d2fe34f07c0705026a176b0fc1482b1.png)
 
 ![](media/ce873cf513307a15f9aa58078c8dd7d6.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 ### Project 07: Follow Me
 
@@ -1021,7 +1027,6 @@ Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](
 
 Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
 
-![](media/169099e3ee48e585f65963c01687873f.png)
 
 ### Project 08: Avoid obstacles
 
@@ -1031,19 +1036,7 @@ In this project, we will take advantage of the ultrasonic sensor to detect the d
 
  **2. Working Principle：**
 
-**Loop**: 8*8 Dot matrix display --> 
-
-| Set servo to 90°      | Detect the distance away from the obstacle (cm) |
-| --------------------- | ----------------------------------------------- |
-| Set the servo to 180° | Distance away form the obstacle：a1（unit：cm） |
-| Set the servo to 0°   | Distance away form the obstacle：a2（unit：cm） |
-
-| Condition 1    | Condition 2 | State                                                        |
-| -------------- | ----------- | ------------------------------------------------------------ |
-| 0<distance＜10 |             | Stop<br />Show the “stop” pattern                            |
-|                | a1＜a2      | Car turns right（set PWM to 200）<br />show “turning right” pattern<br />Set servo to 90° |
-|                | a1≥a2       | Turn left（set PWM to 200）<br />display “left turning” pattern<br />Set servo to 90° |
-| distance≥10    |             | Go forward（set PWM to 200）<br />The 8*8 dot matrix display shows “going forward” pattern |
+![Img](./media/img-20250214164108.png)
 
  **3. Flow Chart：**
 
@@ -1200,13 +1193,15 @@ except:
 
 Place batteries, turn the power switch to ON end and power up.
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the car can automatically dodge obstacles; press“Ctrl+C”or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then the car can automatically dodge obstacles
 
-![](media/2f3701b99abc5f4a2129105c9ab06115.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
+
 
 ### Project 09: Line Tracking Sensor
 
-**1.Description：**
+**1. Description：**
 
 There are two IR line tracking sensors on the car. They are actually two pairs of ST188L3 infrared tubes and used to detect black and white lines. In this project, we will make a line tracking car.
 
@@ -1281,13 +1276,15 @@ while True:
 
 Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, put a black thing under the line tracking sensor of the car and move it, you will see different indicators light up, and at the same time you will see the value on the serial monitor.
 
-Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
 
-The sensitivity can be adjusted by rotating the potentiometer. When the indicator light is adjusted to the critical point of on and off state, the sensitivity is the highest.
-
-![](media/3f5408865f10f90c607d14066df7671e.png)
 
 ![](media/7b57898ccc7423695e6078a3e015fb90.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
+
+**Note:** The sensitivity can be adjusted by rotating the potentiometer. When the indicator light is adjusted to the critical point of on and off state, the sensitivity is the highest.
+
+
 
 ### Project 10: Line Tracking
 
@@ -1389,9 +1386,10 @@ except:
 
 Place batteries, turn the power switch to ON end and power up.
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then it will perform different functions via values sent by line tracking sensors; press“Ctrl+C”or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, then it will perform different functions via values sent by line tracking sensors
 
-![](media/12e5251cdcaf5274e64a5b8e865c61b2.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 ### Project 11: Photosensor
 
@@ -1452,11 +1450,11 @@ Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](
 
 When the light intensifies, the analog value will get increased; on the contrary, the analog value will get reduced.
 
-Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit
 
-![](media/62a7dd0249ec8b7b72dfa159c62cf093.png)
 
 ![](media/2779d2006487d514963e0c9b095864be.png)
+
+Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit
 
 ### Project 12: Light Following Car
 
@@ -1582,9 +1580,11 @@ except:
 
 Place batteries, turn the power switch to ON end and power up.
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, the car will follow the light to move.; press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, the car will follow the light to move.
 
-![](media/3f77abefe6509f442a9a856526233e12.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
+
 
 ### Project 13: IR Remote Control
 
@@ -1699,11 +1699,10 @@ except:
 
 Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, point the IR remote control at the IR receiver and press keys on the remote control, then the monitor will display key values.
 
-Press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
-
-![](media/4a071eb7da0b45b94c0fe70b8d4f9e77.png)
 
 ![](media/623f8fa842b90a093d286954835483c6.png)
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 **Code of each key**
 
@@ -1860,9 +1859,9 @@ except:
 
 Place batteries, turn the power switch to ON end and power up.
 
-Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, point the remote control at the IR receiver and press keys, then the car will make the corresponding movement.; press “Ctrl+C” or click ![](media/27451c8a9c13e29d02bc0f5831cfaf1f.png) to exit.
+Connect the ESP32 main board to your computer via Micro USB cable. Click ![Img](./media/img-20241226133629.png) to run the code. After uploading the code, point the remote control at the IR receiver and press keys, then the car will make the corresponding movement.
 
-![](media/3f865d7066ed13b720b4311adf913e4d.png)
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 ### Project 15：WIFI Station Mode
 
@@ -1941,6 +1940,8 @@ The Shell monitor will print the IP address of the ESP32 when connecting the ESP
 
 ![](media/93283ae7cb7a82e51f252d2cf2607c7e.png)
 
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
+
 ### Project 16：WIFI AP Mode
 
  **1. Component Knowledge：**
@@ -1999,6 +2000,9 @@ Click ![](media/c005d91eb85d5c58566746609ab80254.png)“Run current script”, t
 Enable Wifi, then you can see the ssid\_AP which is called "ESP32\_Wifi" in this code. You can enter the password "12345678" to connect it, or you can modify its AP name and password by code.
 
 ![](media/3e0ad895bea7f5100cc02a415adcace7.png)
+
+
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 
 ### Project 17：WIFI AP+Station Mode
 
@@ -2070,6 +2074,5 @@ Enable WiFi, then you can see ssid\_AP on the ESP32 board.
 
 ![](media/3e0ad895bea7f5100cc02a415adcace7.png)
 
-
-
+Click ![Img](./media/img-20241226133854.png) to exit the execution.
 

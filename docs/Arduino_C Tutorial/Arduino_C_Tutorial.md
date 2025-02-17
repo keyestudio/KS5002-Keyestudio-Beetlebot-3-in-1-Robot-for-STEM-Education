@@ -191,7 +191,7 @@ There are many libraries are included in “**Arduino Library Manager**”.
 
 1\. In Library Manager, search for the desired library by name or browse different categories. 
 
-**⚠️ATTENTION:** Prompts are written in projects that require libraries. For example, “Herein, Adafruit_GFX library is included. Please install it in Library Manager.”
+**⚠️ATTENTION:** Prompts are written in projects that require libraries. For example, “Herein, Adafruit_NeoPixel library is included. Please install it in Library Manager.”
 
 ![Img](./media/img-20240927085306.png)
 
@@ -199,11 +199,9 @@ There are many libraries are included in “**Arduino Library Manager**”.
 
 ![Img](./media/img-20240927085435.png)
 
-![Img](./media/img-20240927174831.png)
-
 3\. Arduino IDE downloads the library automatically.
 
-![Img](./media/img-20240927093755.png)
+![Img](./media/img-20250214161527.png)
 
 4\. Other libraries are the same.
 
@@ -225,13 +223,13 @@ For details, please visit: [Installing libraries in Arduino IDE 2](https://docs.
 
 ### Project 01: 6812 RGB 
 
- **Description：**
+ **1. Description：**
 
 There are 4 RGB LEDs can be widely used in the decoration of buildings, bridges, roads, gardens, courtyards and so on by colors adjustment.
 
 In this experiment, we will demonstrate different lighting effects with them.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 **Working Principle**
 
@@ -241,7 +239,7 @@ The data protocol adopts a single-wire zero-code communication method. After the
 
 ![](media/86e292d0666046b72a1e0e68adfb17e8.png)
 
- **Test Code：**
+ **3. Test Code：**
 
 The SK6812RGB on the PCB board is controlled by the GPIO 14 of the ESP32 board
 
@@ -370,7 +368,7 @@ uint32_t Wheel(byte WheelPos) {
 }
 ```
 
- **Test Result**
+ **4. Test Result**
 
 Upload the code to the ESP32 board (if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot , as shown below
 
@@ -382,19 +380,19 @@ Power up with a USB cable, then 4 RGB LEDs will show different colors
 
 ### Project 02: Play Music 
 
- **Description：**
+ **1. Description：**
 
 There is a power amplifier component on the expansion board, which is often used to play music and serve as an external amplifying device for music playback devices.
 
 In this experiment, we use the speaker amplifier component to play music.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 Power amplifier modules(equivalent to a passive buzzer) don’t have internal oscillation circuits.
 
 The power amplifier module can chime sounds with different frequency when power it up.
 
- **Test Code：**
+ **3. Test Code：**
 
 The speaker component on the PCB board is controlled by the GPIO 2 of the ESP32 board.
 ```c
@@ -431,7 +429,7 @@ void loop() {
 }
 ```
 
- **Test Result**
+ **4. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -443,11 +441,11 @@ Power up with a USB cable, then the speaker module on the PCB board will play a 
 
 ### Project 03: 8*8 Dot Matrix Display 
 
- **Description：**
+ **1. Description：**
 
 Composed of LED emitting tube diodes, the 8\*8 LED dot matrix are applied widely to public information display like advertisement screen and bulletin board, by controlling LED to show words, pictures and videos, etc.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 There are different types of matrices, including 4×4, 8×8 and 16×16 and etc. It contains 64 LEDs.
 
@@ -517,7 +515,7 @@ As shown below, the left button of the mouse is for selection while the right is
 
 The generated hexadecimal code（0x00, 0x66, 0x00, 0x00, 0x18, 0x42, 0x3c, 0x00) is what will be displayed, so you need to save it for next procedure.
 
- **Wiring up：**
+ **3. Wiring up：**
 
 | 8\*8 Dot matrix display | PCB Board |
 | :---------------------: | :-------: |
@@ -526,7 +524,7 @@ The generated hexadecimal code（0x00, 0x66, 0x00, 0x00, 0x18, 0x42, 0x3c, 0x00)
 |           SDA           |    SDA    |
 |           SCL           |    SCL    |
 
- **Test Code：**
+ **4. Test Code：**
 
 The 8\*8 dot matrix is controlled by GPIO21（SDA）and GPIO22（SCL）of the ESP32 board.
 
@@ -570,7 +568,7 @@ void loop()
 }
 ```
 
- **Test Result**
+ **5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -580,13 +578,13 @@ Power up by a USB cable, the 8\*8 dot matrix display will show show “❤”pat
 
 ### Project 04: Servo Rotation 
 
- **Description：**
+ **1. Description：**
 
 There are two servos on the car. We take the servo connected to pin D9 as an example. 
 
 The servo is a motor that can rotate very accurately. It has been widely applied to toy cars, remote control helicopters, airplanes, robots and other fields. In this project, we will use the Nano motherboard to control the servo to spin.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 ![](media/99830768916233a9c5900ac399006c17.png)
 
@@ -603,7 +601,7 @@ In general, servo has three lines in brown, red and orange. The brown wire is gr
 
 ![](media/35084ae289a08e35bdb8c89ceb134ba4.png)
 
- **Wire up：**
+ **3. Wire up：**
 
 | Servo  |  PCB Board  |
 | :----: | :---------: |
@@ -611,7 +609,7 @@ In general, servo has three lines in brown, red and orange. The brown wire is gr
 |  Red   |     5V      |
 | Orange | S1（GPIO4） |
 
- **Test Code 1：**
+ **4. Test Code 1：**
 
 The servo for controlling the ultrasonic sensor is controlled by the GPIO4 of the ESP32 board.
 
@@ -669,7 +667,7 @@ void loop() {
 
 ```
 
- **Test Result 1：**
+ **5. Test Result 1：**
 
 Place batteries in the car, and turn the power switch to ON end and power up. 
 
@@ -682,7 +680,7 @@ Then the arm of the servo will rotate to 0°, 45°, 90°, 135° and 180°
 
 In fact, we can also have a simpler way to control the servo, that is to use the servo library file of Arduino ESP32, you can refer to the official Arduino instructions for use：<https://www.arduino.cc/en/Reference/Servo> .
 
- **Test Code 2：**
+ **6. Test Code 2：**
 
 ```c
 /*
@@ -714,7 +712,7 @@ void loop() {
 }
 ```
 
- **Test Result** 2
+ **7. Test Result** 2
 
 Place batteries in the car, and turn the power switch to ON end and power up. 
 
@@ -726,13 +724,13 @@ Power up with a USB cable, the arm will rotate from 0° to 180°, then from 180�
 
 ### Project 05: Motor Driving and Speed Control  
 
- **Description：**
+ **1. Description：**
 
 There are many ways to drive motors. This car uses the most commonly used DRV8833 motor driver chip, which provides a dual-channel bridge electric driver for toys, printers and other motor integration applications.
 
 In this experiment, we use the DRV8833 motor driver chip on the expansion board to drive the two DC motors, and demonstrate the effect of forward, backward, left-turning, and right-turning.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 DRV8833 motor driver chip: Dual H-bridge motor driver with current control function, can drive two DC motors, one bipolar stepper motor, solenoid valve or other inductive loads. Each H-bridge includes circuitry to regulate or limit winding current.
 
@@ -744,11 +742,11 @@ An internal shutdown function with a fault output pin is used for over-current a
 ![](media/9cb8b7c00f814e367040f2ed4a3c9f4a.png)
 
 
-If you want to get insight to it, you can check the specification of this chip. Just browse it in the“Attachments”folder.
+If you want to get insight to it, you can check the specification of this chip. Just browse it in the “Other_Important_Informations” folder.
 
 ![](media/f7674a914ec2cbe10f1ec6446dc66c22.png)
 
-**Specification：**
+**3. Specification：**
 
 - Input voltage of logic part: DC 5V
 
@@ -769,7 +767,7 @@ If you want to get insight to it, you can check the specification of this chip. 
 - Working temperature: -25~130℃
 
 
- **Drive the car to move**
+ **4. Drive the car to move**
 
 From the above diagram, the direction pin of the left motor is GPIO33; the speed pin is GPIO26; GPIO32 is the direction pin of the right motor; and GPIO25 is speed pin.
 
@@ -783,7 +781,7 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 | Turn right | LOW    | 200          | clockwise     | HIGH   | 200          | anticlockwise |
 | Stop       | LOW    | 0            | stop          | LOW    | 0            | stop          |
 
- **Test Code：**
+ **5. Test Code：**
 
 ```c
 /*
@@ -844,7 +842,7 @@ void loop()
 }
 ```
 
- **Test Result**
+ **6. Test Result**
 
 Place batteries in the car, and turn the power switch to ON end and power up. 
 
@@ -854,7 +852,7 @@ Upload the code to the ESP32 board(if the code can’t be uploaded, you can clic
 
 Then the car moves forward for 2s, backward for 2s, turns left for 2s and right for 2s, stops for 2s.
 
-**Speed regulation**
+**7. Speed regulation**
 
 HIGH is equivalent to a PWM value of 255, and 50 is a PWM value that can be adjusted. The difference in this code is 200. The larger the upper and lower difference is, the faster the motor rotates. We can adjust the motor speed by adjusting the PWM value. If 50 is set to 0, the upper and lower difference becomes 255, and the motor speed reaches the maximum; if 50 is set to 255, the upper and lower difference becomes 0, the motor speed is 0, and the motor does not rotate. When the upper and lower difference values are positive, the motor reverses.
 
@@ -865,7 +863,7 @@ LOW is equivalent to a PWM value of 0, and 255 is a PWM value that can be adjust
 
 ### Project 06: Ultrasonic Sensor 
 
- **Description：**
+ **1. Description：**
 
 There is an ultrasonic sensor on the car. It is a very affordable distance-measuring sensor. 
 
@@ -873,7 +871,7 @@ The ultrasonic sensor sends a high-frequency ultrasonic signal that human hearin
 
 In this experiment, we use an ultrasonic sensor to measure distance and print the data on a serial monitor.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 The HC-SR04 ultrasonic sensor uses sonar to determine distance to an object like what bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package. It comes complete with ultrasonic transmitter and receiver modules.
 
@@ -912,7 +910,7 @@ The Vcc pin provides power generating ultrasonic pulses and is connected to Vcc/
 
 The Trig pin is where the Arduino sends a signal to start the ultrasonic pulse. The Echo pin is where the ultrasonic sensor sends information about the duration of the ultrasonic pulse stroke to the Arduino control board.
 
- **Wiring Up**
+ **3. Wiring Up**
 
 | Ultrasonic Sensor |  PCB Board   |
 | :---------------: | :----------: |
@@ -921,7 +919,7 @@ The Trig pin is where the Arduino sends a signal to start the ultrasonic pulse. 
 |       Echo        | S1（GPIO18） |
 |        Gnd        |      G       |
 
- **Test Code：**
+ **4. Test Code：**
 
 The pin Trig and Echo of the ultrasonic sensor are controlled by the GPIO5 and GPIO18 of the ESP32 board.
 
@@ -962,7 +960,7 @@ float getSonar() {
 }
 ```
 
- **Test Result**
+ **5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below.
 
@@ -975,19 +973,19 @@ Power up with a USB cable, open the monitor and set baud to 115200. When you mov
 
 ### Project 07: Follow Me 
 
- **Description：**
+ **1. Description：**
 
 In the above experiments, we have learned about the 8\*8 dot matrix, motor drivers and speed regulation, ultrasonic sensors, servos and other hardware. In this experiment, we will combine them to create a follow car with the ultrasonic sensor. The can can follow an object to move through measuring distance.
 
- **Working Principle：**
+ **2. Working Principle：**
 
 ![image-20230505164714354](media/image-20230505164714354.png)
 
- **Flow Chart：**
+ **3. Flow Chart：**
 
 ![](media/e1ded45b4454e64b7ff419bad285cb3a.png)
 
- **Test Code：**
+ **4. Test Code：**
 
 
 ```c
@@ -1089,7 +1087,7 @@ void Stop()//define state of stopping
 }
 ```
 
- **Test Result**
+ **5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below.
 
@@ -1099,19 +1097,19 @@ Place batteries in the car and turn the power switch to ON end and power up. The
 
 ### Project 08: Avoid obstacles 
 
- **Description：**
+ **1. Description：**
 
 In this project, we will take advantage of the ultrasonic sensor to detect the distance away from the obstacle so as to avoid them
 
- **Working Principle：**
+ **2. Working Principle：**
 
 ![image-20230505165010133](media/image-20230505165010133.png)
 
- **Flow Chart：**
+ **3. Flow Chart：**
 
 ![](media/62cafb9417859896368e046396c58495.png)
 
- **Test Code：**
+ **4. Test Code：**
 
 ```c
 //*************************************************************************************
@@ -1282,7 +1280,7 @@ void car_Stop()//define the state of stopping
 
 ```
 
- **Test Result**
+ **5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -1292,13 +1290,13 @@ Place batteries in the car and power up. Then the car can automatically dodge ob
 
 ### Project 09: Line Tracking Sensor 
 
- **Description：**
+ **1. Description：**
 
 There are two IR line tracking sensors on the car. They are actually two pairs of ST188L3 infrared tubes and used to detect black and white lines. In this project, we will make a line tracking car
 
 In this experiment, we use ST188L3 infrared tubes to detect black and white lines, then print the data on the serial monitor.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 **Infrared line tracking:**
 
@@ -1319,7 +1317,7 @@ he detected black object or no object represents 1, and the detected white objec
 |  1   |   0   |        10        |
 |  1   |   1   |        11        |
 
- **Test Code：**
+ **3. Test Code：**
 
 The line tracking sensors of the PCB board are controlled by GPIO17 and GPIO16 of the ESP32 board.
 
@@ -1350,7 +1348,7 @@ void loop() {
 ```
 
 
-**Test Result**
+**4. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -1366,11 +1364,11 @@ The sensitivity can be adjusted by rotating the potentiometer. When the indicato
 
 ### Project 10: Line Tracking 
 
- **Description：**
+ **1. Description：**
 
 We’ve introduced the knowledge of motor drivers, speed regulation, and infrared line tracking. In this experiment, the car will perform different actions according to the values transmitted by the infrared tracking.
 
- **Working Principle：**
+ **2. Working Principle：**
 
 | Left | Right | Value（Binary ） |    State     |
 | :--: | :---: | :--------------: | :----------: |
@@ -1379,11 +1377,11 @@ We’ve introduced the knowledge of motor drivers, speed regulation, and infrare
 |  1   |   0   |        10        |  Turn left   |
 |  1   |   1   |        11        | Move forward |
 
- **Flow Chart：**
+ **3. Flow Chart：**
 
 ![](media/c6a0ace5faa949e4fb24fc511d179e08.png)
 
- **Test Code：**
+ **4. Test Code：**
 
 ```c
 /*
@@ -1485,7 +1483,7 @@ void Stop()//define the state of stopping
 ```
 
 
-**Test Result**
+**5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -1497,7 +1495,7 @@ Then the car will perform different functions via values sent by line tracking s
 
 ### Project 11: Photosensor 
 
- **Description：**
+ **1. Description：**
 
 There are two photoresistors on the car. They can vary with the light intensity and send information to the Nano board to control the car.
 
@@ -1505,13 +1503,13 @@ Photoresistors can determine and conduct the car to move by detecting light.
 
 In this experiment, we will learn the working principle of the photoresistor
 
-**Knowledge：**
+**2. Knowledge：**
 
 **Photoresistor:**
 
 It mainly uses a photosensitive resistance element whose resistance varies from the light intensity. The signal terminal of the sensor is connected to the analog port of the microcontroller. When the light is stronger, the analog value at the analog port will increase; on the contrary, when the light intensity is weaker, the analog value of the microcontroller will reduce. In this way, the corresponding analog value can reflect the ambient light intensity.
 
- **Wire up：**
+ **3. Wire up：**
 
 Through the wiring-up diagram, signal pins of two photoresistors are connected to GPIO34 and GPIO35 of the ESP32 board.
 
@@ -1523,7 +1521,7 @@ For the following experiment, we use the photoresistor connected to GPIO34 to fi
 |         V          |      V      |
 |         S          | S（GPIO34） |
 
- **Test Code：**
+ **4. Test Code：**
 
 The left photoresistor is controlled by the GPIO34 of the ESP32 board.
 
@@ -1550,7 +1548,7 @@ void loop()
 }
 ```
 
-**Test Result**
+**5. Test Result**
 
 Upload the code to the ESP32 board ,if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below.
 
@@ -1565,11 +1563,11 @@ When the light intensifies, the analog value will get increased; on the contrary
 
 ### Project 12: Light Following Car 
 
- **Description：**
+ **1. Description：**
 
 We have learned the working principle of photoresistor, motor and speed regulation. In this experiment, we will use a photoresistor to detect the intensity of light as as to achieve the light following effect.
 
- **Working Principle：**
+ **2. Working Principle：**
 
 | Analog value of the left sensor | Analog value of the right sensor |   Function    |
 | :-----------------------------: | :------------------------------: | :-----------: |
@@ -1578,7 +1576,7 @@ We have learned the working principle of photoresistor, motor and speed regulati
 |              ≤3000              |             &gt;3000             | Move to right |
 |            &lt;3000             |             &lt;3000             |     Stop      |
 
- **Wiring up：**
+ **3. Wiring up：**
 
 | Left Photoresistor |  PCB Board  |      | Right photoresistor |  PCB Board  |
 | :----------------: | :---------: | ---- | :-----------------: | :---------: |
@@ -1586,11 +1584,11 @@ We have learned the working principle of photoresistor, motor and speed regulati
 |         V          |      V      |      |          V          |      V      |
 |         S          | S（GPIO34） |      |          S          | S（GPIO35） |
 
- **Flow Chart：**
+ **4. Flow Chart：**
 
 ![](media/d30fcd3007f0d8e6c995bc456679172e.png)
 
- **Test Code：**
+ **5. Test Code：**
 
 The left and right photoresistors are controlled by GPIO34 and GPIO35 of the ESP32 board.
 
@@ -1706,7 +1704,7 @@ Place batteries in the battery holder, turn the power switch to the ON end and p
 
 ### Project 13: IR Remote Control 
 
- **Description：**
+ **1. Description：**
 
 Infrared remote controls are everywhere in daily life. It is used to control various home appliances, such as TV, speakers, video recorders and satellite signal receivers.
 
@@ -1714,7 +1712,7 @@ The remote control is composed of an IR emitter, an IR receiver and a decoding M
 
 In this experiment, we will combine the IR receiver and the IR remote control to read key values and show them on the serial monitor.
 
- **Knowledge：**
+ **2. Knowledge：**
 
 **IR Remote Control：**
 
@@ -1798,7 +1796,7 @@ The command redundancy is still preserved. Therefore each address can still hand
 
 Keep in mind that 256 address values of the extended protocol are invalid because they are in fact normal NEC protocol addresses. Whenever the low byte is the exact inverse of the high byte it is not a valid extended address.
 
- **Test Code：**
+ **3. Test Code：**
 
 The IR receiver on the PCB board is controlled by GPIO19 of the ESP32 board.
 
@@ -1833,7 +1831,7 @@ void loop() {
 } 
 ```
 
- **Test Result：**
+ **4. Test Result：**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png)and press Boot, as shown below
 
@@ -1850,11 +1848,11 @@ Power up with a USB cable, open the serial monitor and set baud rate to 115200. 
 
 ### Project 14: IR Remote Control Car 
 
- **Description：**
+ **1. Description：**
 
 In the above experiment, we have learned about the knowledge of the 8*8 dot matrix display, the motor driver and speed regulation, the infrared receiver and the infrared remote control. In this experiment, we will use the infrared remote control and the infrared receiver to control the car.
 
- **Working Principle：**
+ **2. Working Principle：**
 
 | Keys                                            | Keys Code | Functions                                  |
 | ----------------------------------------------- | --------- | ------------------------------------------ |
@@ -1864,11 +1862,11 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 | ![](media/9eb9042aace52c96a86379dbac70ee2d.png) | FFC23D    | Turn right<br />Show“right turning”pattern |
 | ![](media/68cbb08d230ef50b2f69c66c685414f6.png) | FF02FD    | stop<br />show“stop”pattern                |
 
-**Flow Chart：**
+**3. Flow Chart：**
 
 ![](media/b8ecdfd8dbc04c43021b09bd2c6a48f0.png)
 
- **Test Code：**
+ **4. Test Code：**
 
 ```c
 /*
@@ -2018,7 +2016,7 @@ void car_Stop()//define the state of stopping
 }
 ```
 
- **Test Result：**
+ **5. Test Result：**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -2028,7 +2026,7 @@ Place batteries in the car, turn the power switch to ON end and power up. Turn t
 
 ### Project 15: WIFI Station Mode 
 
-**Description：**
+**1. Description：**
 
 One of the most useful features of the ESP32 is that it can not only act as a Web server, but also to create its own network for other devices to connect to and access web pages. ESP32 can run in three modes: Station (STA) mode, Soft Access Point (AP) mode, and Station+AP mode.
 
@@ -2038,19 +2036,19 @@ One of the most useful features of the ESP32 is that it can not only act as a We
 
 All WiFi programming projects must be configured with WiFi running mode before using, otherwise the WiFi cannot be used. In this project, we are going to learn the ESP32 WiFi Station Mode.
 
- **Components**
+ **2. Components**
 
 | ![](media/729232b0c2d2c01984808289b222890c.png) | ![image-20230505170117649](media/image-20230505170117649.png) |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | USB Cable x1                                    | ESP32\*1                                                     |
 
-**Wiring Diagram**
+**3. Wiring Diagram**
 
 Plug the ESP32 to the USB port of your PC.
 
 ![image-20230505170139899](media/image-20230505170139899.png)
 
- **Component Knowledge：**
+ **4. Component Knowledge：**
 
 **Station mode：**
 
@@ -2058,7 +2056,7 @@ When setting Station mode, the ESP32 is taken as a WiFi client. It can connect t
 
 ![](media/f74baff97695aa2ee33a8c19370d2547.png)
 
- **Test Code：**
+ **5. Test Code：**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -2091,7 +2089,7 @@ void loop() {
 }
 ```
 
- **Test Result**
+ **6. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -2106,7 +2104,7 @@ When the ESP32 successfully connects to ssid\_WiFi, the serial monitor will prin
 
 ### Project 16：WIFI AP Mode 
 
-**Component Knowledge：**
+**1. Component Knowledge：**
 
 **AP Mode:**
 
@@ -2116,7 +2114,7 @@ take the ESP32 as the hotspot. If a phone or PC needs to communicate with the ES
 
 ![](media/35d90f1ce10814ea1897ba63f8bd7ad9.png)
 
- **Test Code:**
+ **2. Test Code:**
 
 **⚠️ATTENTION:** The AP name, AP password, local_IP, gateway and IP address do not need to be modified, and can be directly used.
 
@@ -2157,7 +2155,7 @@ void loop() {
 }
 ```
 
- **Test Result**
+ **3. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -2173,13 +2171,13 @@ When observing the printed information of the serial monitor, turn on the WiFi s
 
 ### Project 17：WIFI AP+Station Mode 
 
- **Component Knowledge：**
+ **1. Component Knowledge：**
 
 **AP+Station mode**
 
 In addition to the AP mode and the Station mode, **AP+Station** can be used at the same time. Turn on the Station mode of the ESP32, connect it to the router network, and it can communicate with the Internet through the router. Then turn on the AP mode to create a hotspot network. Other WiFi devices can be connected to the router network or the hotspot network to communicate with the ESP32.
 
- **Test Code：**
+ **2. Test Code：**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -2228,7 +2226,7 @@ void loop() {
 }
 ```
 
- **Test Result**
+ **3. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -2249,20 +2247,20 @@ Observe the information printed on the serial display, turn on your cellphone an
 
 ### Project 18：Read WiFi APP Button String 
 
- **Description：**
+ **1. Description：**
 
 In the previous experiments, we have learned about the three modes of ESP32: WIFI Station mode, WIFI AP mode and WIFI AP+Station mode. Then in this chapter, we will use the WIFI Station mode of ESP32 to control a multi-function car via app
 
 In this experiment, we first use the WIFI Station mode of ESP32 to read the characters via app.
 
- **Components**
+ **2. Components**
 
 |                                                 |                                                              |                                                              |
 | ----------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![](media/729232b0c2d2c01984808289b222890c.png) | ![image-20230505170459495](media/image-20230505170459495.png) | ![image-20230505170504241](media/image-20230505170504241.png)![image-20230505170507293](media/image-20230505170507293.png) |
 | USB cable x1                                    | ESP32\*1                                                     | Cellphone/iPad\*1                                            |
 
- **Install APP**
+ **3. Install APP**
 
 **Android system：**
 
@@ -2294,7 +2292,7 @@ Search <span style="color: rgb(255, 76, 65);">Beetlebot</span>，click“![](med
 
 The installation instructions are similar with Android system.
 
- **Test Code：**
+ **4. Test Code：**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -2363,7 +2361,7 @@ void loop() {
 }
 ```
 
- **Test Result**
+ **5. Test Result**
 
 Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
 
@@ -2391,15 +2389,15 @@ If the monitor doesn’t display anything, press reset button to reboot
 
 ### Project 19：WiFi Control 8*8 Dot Matrix Display  
 
- **Description：**
+ **1. Description：**
 
 In this experiment, we will use the WIFI Station mode to control the 8\*8 dot matrix display on the car through APP and WIFI.
 
-**Install APP**
+**2. Install APP**
 
-**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://url/) .
+**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the installation instructions of link: [Project 18：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#project-18-read-wifi-app-button-string) .
 
- **Test Code**
+ **3. Test Code**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -2507,21 +2505,31 @@ void loop() {
 }
 ```
 
- **Test Result：**
+ **4. Test Result：**
+
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
+
+![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
+
+
 
 Click ![](media/db52b661d5b22528618e9c14aefa367e.png), the 8\*8 display will show the forward pattern, click ![](media/6abdf809090a56fb251e9ee4d44c70f4.png) , the stop pattern will be shown the stop pattern and click ![](media/aca24e8c4a86a9a2702160be4a4d9970.png), the display module will show the backward pattern.
 
+If the monitor doesn’t display anything, press reset button to reboot
+
+![](media/1fd21fafd84d2b529931a89d21a03d6a.png)
+
 ### Project 20：WiFi Control Multi-purpose Car 
 
- **Description：**
+ **1. Description：**
 
 In this project we will demonstrate how to control the car through APP and WIFI.
 
-**Install APP**
+**2. Install APP**
 
-**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the APP installation instructions of link: [Project 18：Read WiFi APP Button String](https://url/) .
+**⚠️<span style="color: rgb(255, 76, 65);">Special note:</span>** If you have downloaded and installed the APP, this step is skipped; If not, please refer to the APP installation instructions of link: [Project 18：Read WiFi APP Button String](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#project-18-read-wifi-app-button-string) .
 
-**Test Code**
+**3. Test Code**
 
 **⚠️ATTENTION:** Before uploading code, please replace the WiFi name(**REPLACE_WITH_YOUR_SSID**) in the code and the passwords(**REPLACE_WITH_YOUR_PASSWORD**) into yours.
 
@@ -3005,13 +3013,19 @@ float checkdistance() {
 }
 ```
 
- **Test Result：**
+ **4. Test Result：**
+
+Upload the code to the ESP32 board(if the code can’t be uploaded, you can click![](media/d09c4a31563f04a42d451e7bc1a5fb8a.png) and press Boot, as shown below
+
+![](media/dc77bfcf5851c8f43aab6cbe7cec7920.png)
 
 Operate the APP according to the figure below to control the WiFi multi-function car
 
 ![](media/2b44432dad7585375c1d73c6830d8a79.png)
 
+If the monitor doesn’t display anything, press reset button to reboot
 
+![](media/1fd21fafd84d2b529931a89d21a03d6a.png)
 
 
 
