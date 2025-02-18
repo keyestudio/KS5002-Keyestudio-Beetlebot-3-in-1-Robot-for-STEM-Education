@@ -372,7 +372,7 @@ Adjust the angle of the servo to 90 degree before installing the car
 
 **Method 1：Arduino code**
 
-⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About Arduino IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#about-arduino-ide)**
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before you write the code and upload it, you must install the Arduino IDE, please go to the the link: [About Arduino IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/Arduino_C%20Tutorial/Arduino_C_Tutorial.html#about-arduino-ide)**
 
 ```c++
 #include <Arduino.h>
@@ -409,7 +409,7 @@ In folder **..\Codes\180° Servo Angle initialization_Code** , open file **180_S
 
 **Method 2：KidsBlock(Scratch) code**
 
-⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About KidsBlock IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/KidsBlock%28Scratch%29%20Tutorial/KidsBlock%28Scratch%29_Tutorial.html#about-kidsblock-ide)**
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before you write the code and upload it, you must install the KidsBlock IDE, please go to the the link: [About KidsBlock IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/KidsBlock%28Scratch%29%20Tutorial/KidsBlock%28Scratch%29_Tutorial.html#about-kidsblock-ide)**
 
 ![](media/image30.png)
 
@@ -420,9 +420,9 @@ Open file **180°_Servo_Angle_initialization.sb3** with KidsBlock IDE, in folder
 
 ![](media/image31.png)
 
-**Method 3：Python code**
+**Method 3：MicroPython code**
 
-⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before uploading the code, you must install the Arduino IDE, please go to the the link: [About MicroPython IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/MicroPython%20Tutorial/MicroPython_Tutorial.html#about-micropython-ide)**
+⚠️ **<span style="color: rgb(255, 76, 65);">Special note</span>: Before you write the code and upload it, you must install the MicroPython IDE, please go to the the link: [About MicroPython IDE](https://docs.keyestudio.com/projects/KS5002/en/latest/docs/MicroPython%20Tutorial/MicroPython_Tutorial.html#about-micropython-ide)**
 
 ```python
 from machine import Pin, PWM
