@@ -2,7 +2,7 @@
 /*
 Project 10: Line Tracking
 */
-
+#include <ESP32Servo.h>
 //motor
 #define left_ctrl  33  //define direction control pins of the left motor as gpio33
 #define left_pwm  26   //define PWM control pins of the left motor as gpio26
@@ -15,28 +15,21 @@ Project 10: Line Tracking
 int L_val,R_val;//Define two variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-//
-const int servopin = 4;//set the IO port of the servo to gpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 void setup() {
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set the frequency of LEDC channel 1 to 20 and the PWM resolution to 8, that is, the duty cycle is 256.   
-  ledcAttachPin(26, 0);  //Connect the LEDC channel 1 to the gpio26 of the left motor
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the LEDC channel to 2, the frequency to 20, and the PWM resolution to 8, that is, the duty cycle is 256.
-  ledcAttachPin(25, 1);  //LEDC channel 2 is connected to 1 the pin gpio25 of the right motor.
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   
   pinMode(tracking_left, INPUT); //Set right pins of the left sensor to input
   pinMode(tracking_right, INPUT); //Set right pins of the right sensor to input
  
-  ledcSetup(3, 50, 10); // set servo channels3 frequency to 50,PWM resolution to 10.
-  ledcAttachPin(4, 3);  //Connect the LEDC channel  to the IO port you set
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, at this time the servo rotates 90°.
+  myservo.setPeriodHertz(50);           // standard 50 hz servo
+  myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+  myservo.write(90);  // the initial angle of the servo is set to 90° .
   delay(300);
 }
 
@@ -70,29 +63,29 @@ void tracking()
 void front()//define the state of going forward
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 130); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 130); //the left motor outputs PWM 130
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 130); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 130); //the right motor outputs PWM 130
 }
 void left()//define the state of turning left
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 135); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 135); //the left motor outputs PWM 135
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 80); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 80); //the right motor outputs PWM 80
 }
 void right()//define the state of turning right
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 80); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 80); //the left motor outputs PWM 80
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 135); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 135); //the right motor outputs PWM 135
 }
 void Stop()//define the state of stopping
 {
   digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //Connect the LEDC channel 1 to the left motor and outputs PWM 0
+  ledcWrite(left_pwm, 0); //the left motor outputs PWM 0
   digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //Connect the LEDC channel 2 to the right motor and outputs PWM 0
+  ledcWrite(right_pwm, 0); //the right motor outputs PWM 0
 }
 //*************************************************************************************

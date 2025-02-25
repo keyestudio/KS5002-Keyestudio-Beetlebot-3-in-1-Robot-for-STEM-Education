@@ -122,12 +122,19 @@ ESP32 board needs to be installed in Arduino IDE before using.
 
 ![Img](./media/img-20241129110938.png)
 
-2\. Add the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
+2\. Copy and paste the below link into Additional boards manager URLs and click **OK**.
+
+```c++
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+https://arduino.me/packages/esp32.json
+https://arduino.me/packages/esp8266.json
+https://dl.espressif.com/dl/package_esp32_index.json
+```
 
 ![Img](./media/img-20241129111458.png)
 
-3\. Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">1.06</span>** to “**Install**”. 
-(**<span style="color: rgb(255, 76, 65);">⚠️Note that here we adopt 1.06 version of the ESP32. Installation may fail if you choose later versions.</span>**)
+3\. Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">3.1.3</span>** to “**Install**”. 
+(**<span style="color: rgb(255, 76, 65);">⚠️Note that here we adopt 3.1.3 version of the ESP32. Installation may fail if you choose another versions.</span>**)
 
 ![Img](./media/img-20241129112805.png)
 
@@ -378,13 +385,13 @@ Power up with a USB cable, then 4 RGB LEDs will show different colors
 
 ![](media/1905c4220c81d37711556fc1d062a05d.png)
 
-### Project 02: Play Music 
+### Project 02: Play Custom Tone 
 
  **1. Description：**
 
-There is a power amplifier component on the expansion board, which is often used to play music and serve as an external amplifying device for music playback devices.
+There is a power amplifier component on the expansion board, which is often used to play custom tone and serve as an external amplifying device for music playback devices.
 
-In this experiment, we use the speaker amplifier component to play music.
+In this experiment, we use the speaker amplifier component to play custom tone.
 
  **2. Knowledge：**
 
@@ -395,37 +402,36 @@ The power amplifier module can chime sounds with different frequency when power 
  **3. Test Code：**
 
 The speaker component on the PCB board is controlled by the GPIO 2 of the ESP32 board.
+
 ```c
 /*
-    Project 02 Buzzer
-    Buzzer plays music
+Project 02 Buzzer
+The buzzer plays multiple tones
 */
+const int buzzerPin = 2; //buzzer pin
+const int resolution = 8; 
 
-#define LEDC_CHANNEL_0 0//LEDC timer uses 13-bit precision 
-#define LEDC_TIMER_13_BIT  13
+// Frequencies of the 7 musical notes (in Hz)
+int frequencies[] = {262, 294, 330, 349, 392, 440, 494};
 
-// define the IO port
 
-#define BUZZER_PIN  2
+// Function to play a frequency on the buzzer for a given duration
+void playFrequency(int frequency, int duration) {
+  ledcWriteTone(buzzerPin, frequency); // Start the tone
+  delay(duration); // Wait for the specified duration
+  ledcWriteTone(buzzerPin, 0); // Stop the buzzer
+}
 
-//Create a list of music melodies, Super Mario
-int melody[] = {330, 330, 330, 262, 330, 392, 196, 262, 196, 165, 220, 247, 233, 220, 196, 330, 392, 440, 349, 392, 330, 262, 294, 247, 262, 196, 165, 220, 247, 233, 220, 196, 330, 392,440, 349, 392, 330, 262, 294, 247, 392, 370, 330, 311, 330, 208, 220, 262, 220, 262, 294, 392, 370, 330, 311, 330, 523, 523, 523, 392, 370, 330, 311, 330, 208, 220, 262,220, 262, 294, 311, 294, 262, 262, 262, 262, 262, 294, 330, 262, 220, 196, 262, 262,262, 262, 294, 330, 262, 262, 262, 262, 294, 330, 262, 220, 196};
-
-//Create a list of tone durations
-int noteDurations[] = {8,4,4,8,4,2,2,3,3,3,4,4,8,4,8,8,8,4,8,4,3,8,8,3,3,3,3,4,4,8,4,8,8,8,4,8,4,3,8,8,2,8,8,8,4,4,8,8,4,8,8,3,8,8,8,4,4,4,8,2,8,8,8,4,4,8,8,4,8,8,3,3,3,1,8,4,4,8,4,8,4,8,2,8,4,4,8,4,1,8,4,4,8,4,8,4,8,2};
 void setup() {
-    pinMode(BUZZER_PIN, OUTPUT); // set the buzzer to OUTPUT
+  ledcAttach(buzzerPin, 2000, 8); // Set up the PWM pin
 }
 
 void loop() {
-  int noteDuration; //create the variable noteDuration
-  for (int i = 0; i < sizeof(noteDurations); ++i){
-      noteDuration = 800/noteDurations[i];
-      ledcSetup(LEDC_CHANNEL_0, melody[i]*2, LEDC_TIMER_13_BIT);
-      ledcAttachPin(BUZZER_PIN, LEDC_CHANNEL_0);
-      ledcWrite(LEDC_CHANNEL_0, 50);
-      delay(noteDuration * 1.30); //delay
+  for (int i = 0; i < 7; i++) {
+    playFrequency(frequencies[i], 300); // Play each note for 300ms
+    delay(50); // Add a brief pause between the notes
   }
+  delay(1000); // Wait for 1 second before replaying the sequence
 }
 ```
 
@@ -609,78 +615,9 @@ In general, servo has three lines in brown, red and orange. The brown wire is gr
 |  Red   |     5V      |
 | Orange | S1（GPIO4） |
 
- **4. Test Code 1：**
+ **4. Test Code ：**
 
 The servo for controlling the ultrasonic sensor is controlled by the GPIO4 of the ESP32 board.
-
-```c
-//*************************************************************************************
-/*
-Project 04.1 Servo Rotation
-the plastic arm of the servo will rotate at an angle of 0°,45°,90°,135°,and180°,repeatly.
-*/
-#include <Arduino.h>
-
-// Servo channel 
-int channel_PWM = 3;  
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;   
-// PWM resolution, the value is between 0-20, here is 10, then the pwm value filled in the following ledcWrite is between 0-2 to the 10th power, that is, 0-1024.
-int resolution_PWM = 10;   
-//
-const int PWM_Pin = 4;  
-
-void setup() {
-  Serial.begin(115200); //Set the baud rate to 115200.
-  ledcSetup(channel_PWM, freq_PWM, resolution_PWM); // Set servo channel, servo frequency, PWM resolution.
-  ledcAttachPin(PWM_Pin, channel_PWM); 
-}
-
-void get_pwm_info()
-{
-  Serial.println("*******************************************************************");
-  Serial.print("Reads the value of the specified channel duty cycle：");
-  Serial.println(ledcRead(channel_PWM));  //Read the value of the specified channel duty cycle
-  Serial.print("Reads the value of the specified channel frequency as：");
-  Serial.println(ledcReadFreq(channel_PWM));  //Returns the current frequency of the specified channel (if the current duty cycle is 0, the method returns 0).
-}
-
-void loop() {
-  ledcWrite(channel_PWM, 25);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 90°.
-  get_pwm_info();  
-  delay(1000);
-  ledcWrite(channel_PWM, 52);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 45°. .
-  get_pwm_info();  //Print information, click the serial port viewer in the upper right corner of the IDE to see the printed content
-  delay(1000);
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 90°.
-  get_pwm_info();
-  delay(1000);
-  ledcWrite(channel_PWM, 102);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 135°. .
-  get_pwm_info();
-  delay(1000);
-  ledcWrite(channel_PWM, 128);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, and the angle of the steering gear is 180°. .
-  get_pwm_info();
-  delay(1000);
-  //ledcDetachPin(PWM_Pin);  //
-}
-//*************************************************************************************
-
-```
-
- **5. Test Result 1：**
-
-Place batteries in the car, and turn the power switch to ON end and power up. 
-
-Upload the test code to the ESP32 board, and power up with a USB cable, open the monitor and set baud rate to 115200. 
-
-![Img](./media/img-20250214102307.png)
-
-Then the arm of the servo will rotate to 0°, 45°, 90°, 135° and 180°
-
-
-In fact, we can also have a simpler way to control the servo, that is to use the servo library file of Arduino ESP32, you can refer to the official Arduino instructions for use：<https://www.arduino.cc/en/Reference/Servo> .
-
- **6. Test Code 2：**
 
 ```c
 /*
@@ -712,7 +649,7 @@ void loop() {
 }
 ```
 
- **7. Test Result** 2
+ **5. Test Result:**
 
 Place batteries in the car, and turn the power switch to ON end and power up. 
 
@@ -776,7 +713,7 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
 | Function   | GPIO33 | GPIO26（PWM) | Left motor    | GPIO32 | GPIO25（PW） | Right motor   |
 | ---------- | ------ | ------------ | ------------- | ------ | ------------ | ------------- |
 | forward    | LOW    | 200          | clockwise     | LOW    | 200          | clockwise     |
-| Go back    | HIGH   | 50           | anticlockwise | HIGH   | 50           | anticlockwise |
+| Go back    | HIGH   | 55           | anticlockwise | HIGH   | 55           | anticlockwise |
 | Turn left  | HIGH   | 200          | anticlockwise | LOW    | 200          | clockwise     |
 | Turn right | LOW    | 200          | clockwise     | HIGH   | 200          | anticlockwise |
 | Stop       | LOW    | 0            | stop          | LOW    | 0            | stop          |
@@ -790,55 +727,53 @@ PWM drives the robot car. The PWM value is in the range of 0-255. The more the P
  Motor moves forward, backward, left and right
 */ 
 #define left_ctrl  33  //define the direction control pin(rgpio33) of the left motor
-#define left_pwm  26   //define the speed control pin(D6) of the left motor
+#define left_pwm  26   //define PWM control pins of the left motor as gpio25
 #define right_ctrl  32 //Define the direction control pin of the  right motor as gpio32
 #define right_pwm  25  //define PWM control pins of the right motor as gpio25
 
 void setup()
 {
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set LEDC channel 1 frequency to 1200, PWM resolution to 8 that duty cycle is 256.
-  ledcAttachPin(26, 0);  //LEDC channel 1 is connected to 1 the pin gpio26 of the left motor
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the LEDC channel to 2, the frequency to 1200, and the PWM resolution to 8, that is, the duty cycle is 256.
-  ledcAttachPin(25, 1);  //LEDC channel 2 is connected to 1 the pin gpio25 of the right motor.
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
 }
 
 void loop()
 { 
   //front
-  digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 255); //LEDC channel 1 is connected to the left motor and outputs PWM 255
-  digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 255); //LEDC channel 2 is connected to the right motor and outputs PWM 255
+  digitalWrite(left_ctrl,LOW); // set direction control pins of the left motor to LOW.
+  ledcWrite(left_pwm, 200); // the left motor outputs PWM 200
+  digitalWrite(right_ctrl,LOW); // set control pins of the right motor to LOW.
+  ledcWrite(right_pwm, 200); // the right motor outputs PWM 200
   delay(2000);//delay in 2s
   
   //back
-  digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 50); //LEDC channel 1 is connected to the left motor and outputs PWM 50
-  digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 50); //LEDC channel 2 is connected to the right motor and outputs PWM 50
+  digitalWrite(left_ctrl,HIGH); // set direction control pins of the left motor to HIGH.
+  ledcWrite(left_pwm, 55); // the left motor outputs PWM 55
+  digitalWrite(right_ctrl,HIGH); // set control pins of the right motor to HIGH.
+  ledcWrite(right_pwm, 55); // the right motor  outputs PWM 55
   delay(2000);//delay in 2s
   
   //left
-  digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 55); //LEDC channel 1 is connected to the left motor and outputs PWM 55.
-  digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 200); //LEDC channel 2 is connected to the right motor and outputs PWM 200.
+  digitalWrite(left_ctrl,HIGH); // set direction control pins of the left motor to HIGH..
+  ledcWrite(left_pwm, 55); // the left motor outputs PWM 55.
+  digitalWrite(right_ctrl,LOW); // set control pins of the right motor to LOW.
+  ledcWrite(right_pwm, 200); // the right motor outputs PWM 200.
   delay(2000);//delay in 2s
   
   //right
-  digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 200); //LEDC channel 1 is connected to the left motor and outputs PWM 200.
-  digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 55); //LEDC channel 2 is connected to the right motor and outputs PWM 55
+  digitalWrite(left_ctrl,LOW); // set direction control pins of the left motor to LOW.
+  ledcWrite(left_pwm, 200); // the left motor outputs PWM 200.
+  digitalWrite(right_ctrl,HIGH); // set control pins of the right motor to HIGH..
+  ledcWrite(right_pwm, 55); // the right motor outputs PWM 55
   delay(2000);//delay in 2s
   
   //stop
-  digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //LEDC channel 1 is connected to the left motor and outputs PWM 0.
-  digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //LEDC channel 2 is connected to the right motor and outputs PWM 0
+  digitalWrite(left_ctrl,LOW);// set direction control pins of the left motor to LOW.
+  ledcWrite(left_pwm, 0); // the left motor outputs PWM 0.
+  digitalWrite(right_ctrl,LOW);// set control pins of the right motor to LOW.
+  ledcWrite(right_pwm, 0); // the right motor outputs PWM 0
   delay(2000);//delay in 2s
 }
 ```
@@ -994,6 +929,7 @@ In the above experiments, we have learned about the 8\*8 dot matrix, motor drive
 Project 07: follow me
 Car follows the object
 */ 
+#include <ESP32Servo.h>
 //motor
 #define left_ctrl  33  //define direction control pins of the left motor as gpio33
 #define left_pwm  26   //define PWM control pins of the left motor as gpio26.
@@ -1006,29 +942,21 @@ Car follows the object
 long distance; //define distance variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-// 
-const int servopin = 4;//set the pin of the servo to gpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 void setup() {
-  Serial.begin(115200); //set baud rate to 115200.
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set the frequency of LEDC channel 0 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256
-  ledcAttachPin(26, 0);  //connect the LEDC channel 0to the pin gpio26 of the left motor
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the frequency of LEDC channel 1 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256.
-  ledcAttachPin(25, 1);  //connect the LEDC channel 1 to the pin gpio25 of the right motor
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   
   pinMode(TRIG_PIN,OUTPUT);//set TRIG_PIN to OUTPUT.
   pinMode(ECHO_PIN,INPUT);//set ECHO_PIN to INPUT.
   
-  ledcSetup(3, 50, 10); // Set the frequency of servo channels3 to 50 and the PWM resolution to 10.
-  ledcAttachPin(4, 3);  //connect LEDC channels to IO ports you set
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90° .
+  myservo.setPeriodHertz(50);           // standard 50 hz servo
+  myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+  myservo.write(90);  // the initial angle of the servo is set to 90° .
   delay(300);
 }
 
@@ -1068,23 +996,23 @@ float checkdistance() {
 void front()//define the state of going forward
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 200); //Connect the LEDC channel 0 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 150); //the left motor outputs PWM 150
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 200); //Connect the LEDC channel 1 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 150); //the right motor outputs PWM 150
 }
 void back()//define the state of going back
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 100); //Connect the LEDC channel 0 to the left motor and outputs PWM 100.
+  ledcWrite(left_pwm, 100); //the left motor outputs PWM 100
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 100); //Connect the LEDC channel 1 to the right motor and outputs PWM 100
+  ledcWrite(right_pwm, 100); //the right motor outputs PWM 100
 }
 void Stop()//define state of stopping
 {
   digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //Connect the LEDC channel 0 to the left motor and outputs PWM 0
+  ledcWrite(left_pwm, 0); //the left motor outputs PWM 0.
   digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //connect the LEDC channel 1 to the right motor and outputs PWM 0
+  ledcWrite(right_pwm, 0); //the right motor outputs PWM 0
 }
 ```
 
@@ -1113,25 +1041,10 @@ In this project, we will take advantage of the ultrasonic sensor to detect the d
  **4. Test Code：**
 
 ```c
-//*************************************************************************************
 /*
 Project 08: avoid obstacles
 */  
-#include "HT16K33_Lib_For_ESP32.h"  //define 8*8 dot matrix display
-
-//8*8 dot matrix display
-//define pins as GPIO21 and GPIO22
-#define SDA 21
-#define SCL 22
-ESP32_HT16K33 matrix = ESP32_HT16K33();
-//Array, used to store pattern data, which can be calculated by yourself or obtained from the touch tool
-byte front[8]={0x12,0x24,0x48,0x90,0x90,0x48,0x24,0x12};
-byte back[8]={0x48,0x24,0x12,0x09,0x09,0x12,0x24,0x48};
-byte left[8]={0x18,0x24,0x42,0x99,0x24,0x42,0x81,0x00};
-byte right[8]={0x00,0x81,0x42,0x24,0x99,0x42,0x24,0x18};
-byte stop1[8]={0x00,0x00,0x00,0xfd,0xfd,0x00,0x00,0x00};
-byte result[8][8];
-
+#include <ESP32Servo.h>
 //motor
 #define left_ctrl  33  //define direction control pins of the left motor as gpio33
 #define left_pwm  26   //define PWM control pins of the left motor as gpio26.
@@ -1144,33 +1057,22 @@ byte result[8][8];
 long distance,a1,a2;//define three distance variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-// 
-const int servopin = 4;//set the IO pin of the servo to gpio4.
+const int servoPin = 4; //set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 void setup() {
-  Serial.begin(9600);
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set the frequency of LEDC channel 0 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256
-  ledcAttachPin(26, 0);  //Connect the LEDC channel 0 to the pin gpio26 of the left motor 
-  pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the frequency of LEDC channel 0 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256
-  ledcAttachPin(25, 1);  //Connect the LEDC channel 1 to the pin gpio25 of the right motor .
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
+  pinMode(right_ctrl,OUTPUT); //set direction control pins of the right motor to OUTPUT..
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   
-  pinMode(TRIG_PIN,OUTPUT);//set TRIG_PIN to OUTPUT.
-  pinMode(ECHO_PIN,INPUT);//set ECHO_PIN to INPUT.
+  pinMode(TRIG_PIN,OUTPUT); //set TRIG_PIN to OUTPUT.
+  pinMode(ECHO_PIN,INPUT); //set ECHO_PIN to INPUT.
   
-  ledcSetup(3, 50, 10); // Set servo channels3 frequency to 50 and PWM resolution to 10
-  ledcAttachPin(4, 3);  //Connect the LEDC channel to the IO port   
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90° .
-  delay(300);
-  
-  matrix.init(0x70, SDA, SCL);//Initialize dot matrix display
-  matrix.clear(); //clear up screens
+  myservo.setPeriodHertz(50);           // standard 50 hz servo
+  myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+  myservo.write(90);
+  delay(500);
 }
  
 void loop()
@@ -1196,88 +1098,72 @@ void avoid()
   if((distance < 10)&&(distance != 0))//if 0<distance<10
   {
     car_Stop();//stop
-    matrix.clear();
-    matrix.showLedMatrix(stop1,0,0);
-    matrix.show();//show stop pattern
     delay(100);
-    ledcWrite(channel_PWM, 128);  //The 20ms high level is about 2.5ms, which is 2.5/20*1024, at this time the servo turns to 180°. 
-    delay(400);
+    myservo.write(180);  //the servo turns to 180°. 
+    delay(500);
     a1=checkdistance();//Measuring distance
     delay(100);
-    ledcWrite(channel_PWM, 25);  //The 20ms high level is about 0.5ms, that is, 0.5/20*1024, at this time the servo turns to 0°. 
-    delay(400);
+    myservo.write(0); //the servo turns to 0°. 
+    delay(500);
     a2=checkdistance();//Measuring distance
     delay(100);
 
     if(a1 > a2)//
     {
       car_left();//turn left
-      matrix.clear();
-      matrix.showLedMatrix(left,0,0);
-      matrix.show();//show left turning patter
-      ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90° .
-      delay(400);
-      matrix.clear();
-      matrix.showLedMatrix(front,0,0);
-      matrix.show();//show forward pattern
+      delay(100);
+      myservo.write(90); //the initial angle of the servo is set to 90° .
+      delay(500);
     }
     else//if left distance < right distance
     {
       car_right();//turn right
-      matrix.clear();
-      matrix.showLedMatrix(right,0,0);//
-      matrix.show();//show right turning
-      ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90° .
-      delay(400);
-      matrix.clear();
-      matrix.showLedMatrix(front,0,0);//
-      matrix.show();//show forward pattern
+      delay(100);
+      myservo.write(90); //the initial angle of the servo is set to 90° .
+      delay(500);
     }
   }
   else//
   {
-    car_front();//go forward
-    matrix.clear();
-    matrix.showLedMatrix(front,0,0);//
-    matrix.show();//show forward pattern
+    car_front();//go forward  
   }
 }
 
 void car_front()//define the state of going forward
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 150); //Connect the LEDC channel 0 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 100); //the left motor outputs PWM 100
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 150); //Connect the LEDC channel 1 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 100); //the right motor outputs PWM 100
 }
 void car_back()//define the state of going back
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 50); //Connect the LEDC channel 0 to the left motor and outputs PWM 50.
+  ledcWrite(left_pwm, 100); //the left motor outputs PWM 100
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 50); //Connect the LEDC channel 1 to the right motor and outputs PWM 50.
+  ledcWrite(right_pwm, 100); //the right motor outputs PWM 100
 }
 void car_left()//define the state of turning left
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 55); //Connect the LEDC channel 0 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 100); //the left motor outputs PWM 100
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 150); //Connect the LEDC channel 1 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 100); //the right motor outputs PWM 100
 }
 void car_right()//define the state of turning right
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 150); //Connect the LEDC channel 0 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 100); //the left motor outputs PWM 100
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 55); //Connect the LEDC channel 1 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 100); //the right motor outputs PWM 100
 }
 void car_Stop()//define the state of stopping
 {
   digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //Connect the LEDC channel 0 to the left motor and outputs PWM 0  digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //Connect the LEDC channel 1 to the right motor and outputs PWM0
-}                                                                
-//*************************************************************************************
+  ledcWrite(left_pwm, 0); //the left motor outputs PWM 0 
+  digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
+  ledcWrite(right_pwm, 0); //the right motor outputs PWM 0
+} 
 
 ```
 
@@ -1386,9 +1272,9 @@ We’ve introduced the knowledge of motor drivers, speed regulation, and infrare
 
 ```c
 /*
-Project 10: Follow line to walk
+Project 10: Line Tracking
 */
-
+#include <ESP32Servo.h>
 //motor
 #define left_ctrl  33  //define direction control pins of the left motor as gpio33
 #define left_pwm  26   //define PWM control pins of the left motor as gpio26
@@ -1401,28 +1287,21 @@ Project 10: Follow line to walk
 int L_val,R_val;//Define two variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-//
-const int servopin = 4;//set the IO port of the servo to gpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 void setup() {
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set the frequency of LEDC channel 1 to 20 and the PWM resolution to 8, that is, the duty cycle is 256.   
-  ledcAttachPin(26, 0);  //Connect the LEDC channel 1 to the gpio26 of the left motor
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the LEDC channel to 2, the frequency to 20, and the PWM resolution to 8, that is, the duty cycle is 256.
-  ledcAttachPin(25, 1);  //LEDC channel 2 is connected to 1 the pin gpio25 of the right motor.
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   
   pinMode(tracking_left, INPUT); //Set right pins of the left sensor to input
   pinMode(tracking_right, INPUT); //Set right pins of the right sensor to input
  
-  ledcSetup(3, 50, 10); // set servo channels3 frequency to 50,PWM resolution to 10.
-  ledcAttachPin(4, 3);  //Connect the LEDC channel  to the IO port you set
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, at this time the servo rotates 90°.
+  myservo.setPeriodHertz(50);           // standard 50 hz servo
+  myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+  myservo.write(90);  // the initial angle of the servo is set to 90° .
   delay(300);
 }
 
@@ -1456,30 +1335,30 @@ void tracking()
 void front()//define the state of going forward
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 130); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 130); //the left motor outputs PWM 130
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 130); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 130); //the right motor outputs PWM 130
 }
 void left()//define the state of turning left
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 135); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 135); //the left motor outputs PWM 135
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 80); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 80); //the right motor outputs PWM 80
 }
 void right()//define the state of turning right
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 80); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 80); //the left motor outputs PWM 80
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 135); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 135); //the right motor outputs PWM 135
 }
 void Stop()//define the state of stopping
 {
   digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //Connect the LEDC channel 1 to the left motor and outputs PWM 0
+  ledcWrite(left_pwm, 0); //the left motor outputs PWM 0
   digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //Connect the LEDC channel 2 to the right motor and outputs PWM 0
+  ledcWrite(right_pwm, 0); //the right motor outputs PWM 0
 }
 ```
 
@@ -1594,11 +1473,10 @@ We have learned the working principle of photoresistor, motor and speed regulati
 The left and right photoresistors are controlled by GPIO34 and GPIO35 of the ESP32 board.
 
 ```c
-//*************************************************************************************
 /*
 Project 12:Light Following Car
 */ 
-
+#include <ESP32Servo.h>
 //motor
 #define left_ctrl  33  //define direction control pins of the left motor as gpio33
 #define left_pwm  26   //define PWM control pins of the left motor as gpio26.
@@ -1612,29 +1490,22 @@ int left_light;
 int right_light;
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-// 
-const int servopin = 4;//define the IO port of the servo as gpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 void setup(){
   Serial.begin(115200); //set baud rate to 115200.
   pinMode(light_L_Pin, INPUT); //set pins of the left sensor to INPUT
   pinMode(light_R_Pin, INPUT); //set pins of the right sensor to INPUT
   
-  pinMode(left_ctrl,OUTPUT);//set control pins of the left motor to OUTPUT
-  ledcSetup(0, 1200, 8);//Set the frequency of LEDC channel 1 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256. 
-  ledcAttachPin(26, 0);  //Connect the LEDC channel 1 to the gpio26 of the left motor
+  pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+  ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
-  ledcSetup(1, 1200, 8);//Set the frequency of LEDC channel 2 to 1200 and the PWM resolution to 8, that is, the duty cycle is 256.
-  ledcAttachPin(25, 1);  //LEDC channel 2 is connected to 1 the pin gpio25 of the right motor.
+  ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
   
-  ledcSetup(3, 50, 10); // Set servo channels3 frequency to 50 and PWM resolution to 10
-  ledcAttachPin(4, 3);  //Connect the LEDC channel  to the IO port you set
-  ledcWrite(channel_PWM, 77);  //The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90°.
+  myservo.setPeriodHertz(50);           // standard 50 hz servo
+  myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+  myservo.write(90);  // the initial angle of the servo is set to 90° .
   delay(300);
 }
 
@@ -1666,33 +1537,31 @@ void loop(){
 void Car_front()
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 200); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 150); //the left motor outputs PWM 150
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 200); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 150); //the right motor outputs PWM 150
 }
 void Car_left()
 {
   digitalWrite(left_ctrl,HIGH); //set direction control pins of the left motor to HIGH..
-  ledcWrite(0, 200); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 150); //the left motor outputs PWM 150
   digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
-  ledcWrite(1, 200); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 150); //the right motor outputs PWM 150
 }
 void Car_right()
 {
   digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
-  ledcWrite(0, 200); //Connect the LEDC channel 1 to the left motor and outputs PWM 200
+  ledcWrite(left_pwm, 150); //the left motor outputs PWM 150
   digitalWrite(right_ctrl,HIGH); //set control pins of the right motor to HIGH..
-  ledcWrite(1, 200); //Connect the LEDC channel 2 to the right motor and outputs PWM 200
+  ledcWrite(right_pwm, 150); //the right motor outputs PWM 135
 }
 void Car_Stop()
 {
   digitalWrite(left_ctrl,LOW);//set direction control pins of the left motor to LOW.
-  ledcWrite(0, 0); //Connect the LEDC channel 1 to the left motor and outputs PWM 0
+  ledcWrite(left_pwm, 0); //the left motor outputs PWM 0
   digitalWrite(right_ctrl,LOW);//set control pins of the right motor to LOW.
-  ledcWrite(1, 0); //Connect the LEDC channel 2 to the right motor and outputs PWM 0
+  ledcWrite(right_pwm, 0); //the right motor outputs PWM 0
 }
-//*************************************************************************************
-
 ```
 
 **6. Test Result**
@@ -1765,7 +1634,6 @@ This description was taken from my VCR's service manual. Those were the days, wh
 
 ![](media/da33571c6f0afb94b1ec1d91caba3edb.png)
 
-
 The NEC protocol uses pulse distance encoding of the bits. Each pulse is a 560µs long 38kHz carrier burst (about 21 cycles). A logical "1" takes 2.25ms to transmit, while a logical "0" is only half of that, being 1.125ms. The recommended carrier duty-cycle is 1/4 or 1/3
 
 **Protocol**
@@ -1801,6 +1669,23 @@ Keep in mind that 256 address values of the extended protocol are invalid becaus
 
 The IR receiver on the PCB board is controlled by GPIO19 of the ESP32 board.
 
+
+<span style="color: rgb(255, 76, 65);">The `IRremoteESP8266` library is used here, and use version 2.8.6 of the IRremoteESP8266 library.</span>
+
+![Img](./media/img-20250225155452.png)
+
+
+<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version 3.1.3 or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **1.0.6**. After completing this example and the lesson 14 example, upgrade back to the latest version. </span>
+
+Copy and paste the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
+
+![Img](./media/img-20250225154317.png)
+
+Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">1.0.6</span>** to “**Install**”. 
+
+![Img](./media/img-20250225154625.png)
+
+<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the lesson 14 example, upgrade back to the latest version.</span>
 
 ```c
 /*
@@ -1868,6 +1753,23 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 ![](media/b8ecdfd8dbc04c43021b09bd2c6a48f0.png)
 
  **4. Test Code：**
+
+<span style="color: rgb(255, 76, 65);">The `IRremoteESP8266` library is used here, and use version 2.8.6 of the IRremoteESP8266 library.</span>
+
+![Img](./media/img-20250225155452.png)
+
+
+<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version 3.1.3 or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **1.0.6**. After completing this example and the lesson 13 example, upgrade back to the latest version. </span>
+
+Copy and paste the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
+
+![Img](./media/img-20250225154317.png)
+
+Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">1.0.6</span>** to “**Install**”. 
+
+![Img](./media/img-20250225154625.png)
+
+<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the lesson 13 example, upgrade back to the latest version.</span>
 
 ```c
 /*
@@ -2540,6 +2442,7 @@ In this project we will demonstrate how to control the car through APP and WIFI.
 #include <WiFiClient.h>
 #include <Adafruit_NeoPixel.h>
 Adafruit_NeoPixel ledStrip(4, 14, NEO_GRB + NEO_KHZ800);
+#include <ESP32Servo.h>
 
 #include <HT16K33_Lib_For_ESP32.h>
 //define pins as GPIO21 and GPIO22
@@ -2560,13 +2463,12 @@ uint8_t matrix_speechless[8]={0x40, 0x40, 0x5c, 0x14, 0x5c, 0x40, 0x40, 0x40};
 uint8_t matrix_heart[8]={0x30, 0x48, 0x44, 0x22, 0x22, 0x44, 0x48, 0x30};
 uint8_t matrix_clear[8]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-#define PIN_BUZZER 2
-#define CHN 5 //define the pwm channel
+const int buzzerPin = 2; //buzzer pin
 
-#define INA 32
-#define PWMA 25
-#define INB 33
-#define PWMB 26
+#define left_ctrl  33  //define direction control pins of the left motor as gpio33
+#define left_pwm  26   //define PWM control pins of the left motor as gpio26.
+#define right_ctrl  32 //define direction control pins of the right motor as gpio32.
+#define right_pwm  25  //define PWM control pins of the right motor as gpio25
 
 /*REPLACE WITH YOUR NETWORK CREDENTIALS(Put your SSID & Password)*/
 const char* ssid = "REPLACE_WITH_YOUR_SSID"; //Enter SSID here
@@ -2581,13 +2483,8 @@ WiFiServer server(80);
 long distance; //define three distance variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-//  PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-// 
-const int servopin = 4;//Define the signal input of the servo asgpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 int flag_neo = 0;
 int flag_matrix = 0;
@@ -2597,25 +2494,22 @@ int speed_R = 200;
 void setup(void)
 {
     Serial.begin(115200);
-    pinMode(INA, OUTPUT);
-    ledcAttachPin(PWMA, 0);
-    ledcSetup(0, 50, 8);//Set LEDC channel 1 frequency to 1200, PWM resolution to 8 that duty cycle is 256
-    pinMode(INB, OUTPUT);
-    ledcAttachPin(PWMB,1);
-    ledcSetup(1, 50, 8);//Set LEDC channel 2 frequency to 1200, PWM resolution to 8 that duty cycle is 256
+    pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+    ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
+    pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
+    ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
 
     pinMode(TRIG_PIN,OUTPUT);//Set TRIG_PIN to OUTPUT.
     pinMode(ECHO_PIN,INPUT);//Set ECHO_PIN to INPUT入.
     
-    ledcSetup(3, 50, 10); // set the frequency of servo channels3 to 50,PWM resolution to 10..
-    ledcAttachPin(4, 3);  //Connect the LEDC channel to the IO port you set
-    ledcWrite(channel_PWM, 77);  //2The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90°
+    myservo.setPeriodHertz(50);           // standard 50 hz servo
+    myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+    myservo.write(90);  // the initial angle of the servo is set to 90° .
     delay(300);
 
-    pinMode(PIN_BUZZER, OUTPUT);
-    ledcSetup(CHN, 0, 10); //setup pwm channel
-    ledcAttachPin(PIN_BUZZER, CHN); //attach the led pin to pwm channel
-
+    ledcAttach(buzzerPin, 2000, 8); // Set up the PWM pin
+    ledcWriteTone(buzzerPin, 0);
+    
     matrix.init(0x70, SDA, SCL);// matrix init
     matrix.clear(); //clear
     matrix.setBrightness(10);
@@ -2717,67 +2611,67 @@ void loop(void)
     }
     else if(req == "/btn/F")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, speed_L);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, speed_R);
+      digitalWrite(left_ctrl,LOW);
+      ledcWrite(left_pwm, speed_L);
+      digitalWrite(right_ctrl,LOW);
+      ledcWrite(right_pwm, speed_R);
     }
     else if(req == "/btn/B")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(0, (255-speed_L));
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, (255-speed_R));
+      digitalWrite(left_ctrl, HIGH);
+      ledcWrite(left_pwm, (255-speed_L));
+      digitalWrite(right_ctrl, HIGH);
+      ledcWrite(right_pwm, (255-speed_R));
     }
     else if(req == "/btn/L")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, speed_L);
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, (255-speed_R));
+      digitalWrite(left_ctrl, HIGH);
+      ledcWrite(left_pwm, speed_L);
+      digitalWrite(right_ctrl, LOW);
+      ledcWrite(right_pwm, (255-speed_R));
     }
     else if(req == "/btn/R")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(0, (255-speed_L));
-      digitalWrite(INB, LOW);
-      ledcWrite(1, speed_R);
+      digitalWrite(left_ctrl, LOW);
+      ledcWrite(left_pwm, (255-speed_L));
+      digitalWrite(right_ctrl, HIGH);
+      ledcWrite(right_pwm, speed_R);
     }
     else if(req == "/btn/S")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, 0);
+      digitalWrite(left_ctrl, LOW);
+      ledcWrite(left_pwm, 0);
+      digitalWrite(right_ctrl, LOW);
+      ledcWrite(right_pwm, 0);
     }
     else if(req == "/btn/a")
     {
-      ledcWriteTone(CHN, 262);
+      ledcWriteTone(buzzerPin, 262);
     }
     else if(req == "/btn/b")
     {
-      ledcWriteTone(CHN, 0);
+      ledcWriteTone(buzzerPin, 0);
     }
     else if(req == "/btn/c")
     {
-      ledcWriteTone(CHN, 262);
+      ledcWriteTone(buzzerPin, 262);
       delay(200);
-      ledcWriteTone(CHN, 294);
+      ledcWriteTone(buzzerPin, 294);
       delay(200);
-      ledcWriteTone(CHN, 330);
+      ledcWriteTone(buzzerPin, 330);
       delay(200);
-      ledcWriteTone(CHN, 349);
+      ledcWriteTone(buzzerPin, 349);
       delay(200);
-      ledcWriteTone(CHN, 392);
+      ledcWriteTone(buzzerPin, 392);
       delay(200);
-      ledcWriteTone(CHN, 440);
+      ledcWriteTone(buzzerPin, 440);
       delay(200);
-      ledcWriteTone(CHN, 494);
+      ledcWriteTone(buzzerPin, 494);
       delay(200);
     }
     else if(req == "/btn/d")
     {
-      ledcWriteTone(CHN, 0);
+      ledcWriteTone(buzzerPin, 0);
     }
     else if(req == "/btn/e")
     {
@@ -2889,7 +2783,6 @@ void loop(void)
     {
       Serial.write('l');
       client.println(F("l"));
-      car_follow();
     }
     else if(req == "/btn/m")
     {
@@ -2961,45 +2854,6 @@ void loop(void)
     //client.stop();
     //Serial.println("Done with client");
 
-}
-
-void car_follow()
-{
-    distance = checkdistance();//Get the distance measured by the ultrasonic sensor
-    Serial.print(distance);//Send a pulse, calculate the distance in centimeters and print the result.
-    Serial.println("cm");
-    if(distance<8)//if distance is less than 8
-    {
-      //Go back
-      digitalWrite(INA, 0);
-      ledcWrite(1, 100);
-      digitalWrite(INB, 0);
-      ledcWrite(2, 100);
-    }
-    else if((distance>=8)&&(distance<13))//if 8≤distance<13.
-    {
-      //stop
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 0);
-    }
-    else if((distance>=13)&&(distance<35))//if 13≤distance<35.
-    {
-      //follow
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 100);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 100);
-    }
-    else//
-    {
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 0);
-    }
-  
 }
 
 float checkdistance() {

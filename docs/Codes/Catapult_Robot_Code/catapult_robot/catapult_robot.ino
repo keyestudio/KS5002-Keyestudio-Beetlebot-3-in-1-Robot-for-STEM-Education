@@ -2,10 +2,12 @@
 #include <ESPmDNS.h>
 #include <WiFiClient.h>
 
-#define INA 32
-#define PWMA 25
-#define INB 33
-#define PWMB 26
+#include <ESP32Servo.h>
+//motor
+#define left_ctrl  33  //define direction control pins of the left motor as gpio33
+#define left_pwm  26   //define PWM control pins of the left motor as gpio26.
+#define right_ctrl  32 //define direction control pins of the right motor as gpio32.
+#define right_pwm  25  //define PWM control pins of the right motor as gpio25
 
 /*REPLACE WITH YOUR NETWORK CREDENTIALS(Put your SSID & Password)*/
 const char* ssid = "REPLACE_WITH_YOUR_SSID"; //Enter SSID here
@@ -14,27 +16,20 @@ const char* password = "REPLACE_WITH_YOUR_PASSWORD"; //Enter Password here
 WiFiServer server(80);
 
 //servo
-int channel_PWM = 3; // servo channel
-// Servo frequency. The period is 1/50, which is 20ms. The PWM has a total of 16 channels, of which the 0-7 bit high-speed channel is driven by an 80Mhz clock, and the following eight low-speed channels are driven by a 1Mhz clock.
-int freq_PWM = 50;
-// PWM resolution, ranging from 0 to 20. If this is 10, the pwm value in ledcWrite is between 0 and 2 to the power of 10, which is 0 to 1024. If the requirements are not high, you can just use 1000.
-int resolution_PWM = 10;
-// Bind I/O ports. This is used in the binding function below. After binding, this IO becomes the output of the PWM.
-const int servopin = 23;//Define the IO pin of the servo as gpio23.
+const int servoPin = 23;//set the pin of the servo to gpio23.
+Servo myservo;  // create servo object to control a servo
 
 void setup(void)
 {
     Serial.begin(115200);
-    pinMode(INA, OUTPUT);
-    ledcAttachPin(PWMA, 2);
-    ledcSetup(2, 1200, 8);//Set the LEDC channel 2 frequency to 1200 and the PWM resolution to 8, that is, the duty cycle to 256.
-    pinMode(INB, OUTPUT);
-    ledcAttachPin(PWMB,1);
-    ledcSetup(1, 1200, 8);//Set the LEDC channel 1 frequency to 1200 and the PWM resolution to 8, that is, the duty cycle to 256.
-    
-    ledcSetup(3, 50, 10); // Set the frequency of servo channel 3 to 50 and the PWM resolution to 10.
-    ledcAttachPin(23, 3);  //Bind the LEDC channel to the specified I/O port for output.
-    ledcWrite(channel_PWM, set_angle(0));
+    pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+    ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
+    pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
+    ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
+  
+    myservo.setPeriodHertz(50);           // standard 50 hz servo
+    myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+    myservo.write(0);  // the initial angle of the servo is set to 0° .
     delay(300);
 
     // Connect to WiFi network
@@ -116,44 +111,44 @@ void loop(void)
     }
     else if(req == "/btn/F")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(2, 100);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, 100);
+      digitalWrite(left_ctrl,LOW); //set direction control pins of the left motor to LOW.
+      ledcWrite(left_pwm, 150); //the left motor outputs PWM 150
+      digitalWrite(right_ctrl,LOW); //set control pins of the right motor to LOW.
+      ledcWrite(right_pwm, 150); //the right motor outputs PWM 150
     }
     else if(req == "/btn/B")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(2, 155);
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, 155);
+      digitalWrite(left_ctrl, HIGH);
+      ledcWrite(left_pwm, 150);
+      digitalWrite(right_ctrl, HIGH);
+      ledcWrite(right_pwm, 150);
     }
     else if(req == "/btn/L")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(2, 100);
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, 155);
+      digitalWrite(left_ctrl,HIGH); 
+      ledcWrite(left_pwm, 150); 
+      digitalWrite(right_ctrl,LOW); 
+      ledcWrite(right_pwm, 150); 
     }
     else if(req == "/btn/R")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(2, 155);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, 100);
+      digitalWrite(left_ctrl,LOW); 
+      ledcWrite(left_pwm, 150); 
+      digitalWrite(right_ctrl,HIGH); 
+      ledcWrite(right_pwm, 150); 
     }
     else if(req == "/btn/S")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(2, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, 0);
+      digitalWrite(left_ctrl,LOW);
+      ledcWrite(left_pwm, 0);
+      digitalWrite(right_ctrl,LOW);
+      ledcWrite(right_pwm, 0); 
     }
     else if(req == "/btn/p")
     {
       Serial.write('p');
-      ledcWrite(channel_PWM, set_angle(55));
-      delay(100);
+      myservo.write(55);
+      delay(200);
     }
     else if(req == "/btn/q")
     {
@@ -162,14 +157,9 @@ void loop(void)
     }
     else if(req == "/btn/x")
     {
-      ledcWrite(channel_PWM, set_angle(0));
-      delay(100); 
+      myservo.write(0);
+      delay(200); 
     }
-
 }
 
-int set_angle(int angle)
-{
-  int servo_angle = map(angle, 0, 180, 25, 128);
-  return servo_angle;
-}
+

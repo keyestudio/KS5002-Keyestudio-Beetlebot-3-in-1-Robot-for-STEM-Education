@@ -3,6 +3,7 @@
 #include <WiFiClient.h>
 #include <Adafruit_NeoPixel.h>
 Adafruit_NeoPixel ledStrip(4, 14, NEO_GRB + NEO_KHZ800);
+#include <ESP32Servo.h>
 
 #include <HT16K33_Lib_For_ESP32.h>
 //define pins as GPIO21 and GPIO22
@@ -23,13 +24,12 @@ uint8_t matrix_speechless[8]={0x40, 0x40, 0x5c, 0x14, 0x5c, 0x40, 0x40, 0x40};
 uint8_t matrix_heart[8]={0x30, 0x48, 0x44, 0x22, 0x22, 0x44, 0x48, 0x30};
 uint8_t matrix_clear[8]={0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-#define PIN_BUZZER 2
-#define CHN 5 //define the pwm channel
+const int buzzerPin = 2; //buzzer pin
 
-#define INA 32
-#define PWMA 25
-#define INB 33
-#define PWMB 26
+#define left_ctrl  33  //define direction control pins of the left motor as gpio33
+#define left_pwm  26   //define PWM control pins of the left motor as gpio26.
+#define right_ctrl  32 //define direction control pins of the right motor as gpio32.
+#define right_pwm  25  //define PWM control pins of the right motor as gpio25
 
 /*REPLACE WITH YOUR NETWORK CREDENTIALS(Put your SSID & Password)*/
 const char* ssid = "REPLACE_WITH_YOUR_SSID"; //Enter SSID here
@@ -44,13 +44,8 @@ WiFiServer server(80);
 long distance; //define three distance variables
 
 //servo
-int channel_PWM = 3; // servo channels
-// Servo frequency, then the period is 1/50, which is 20ms, PWM has a total of 16 channels, 0-7 high-speed channels are driven by 80Mhz clock, and the last 8 low-speed channels are driven by 1Mhz clock.
-int freq_PWM = 50;
-//  PWM resolution, in the range of 0-20, fill in 10. Then the pwm value of ledcWrite is in the range of 0-1024.
-int resolution_PWM = 10;
-// 
-const int servopin = 4;//Define the signal input of the servo asgpio4.
+const int servoPin = 4;//set the pin of the servo to gpio4.
+Servo myservo;  // create servo object to control a servo
 
 int flag_neo = 0;
 int flag_matrix = 0;
@@ -60,25 +55,22 @@ int speed_R = 200;
 void setup(void)
 {
     Serial.begin(115200);
-    pinMode(INA, OUTPUT);
-    ledcAttachPin(PWMA, 0);
-    ledcSetup(0, 50, 8);//Set LEDC channel 1 frequency to 1200, PWM resolution to 8 that duty cycle is 256
-    pinMode(INB, OUTPUT);
-    ledcAttachPin(PWMB,1);
-    ledcSetup(1, 50, 8);//Set LEDC channel 2 frequency to 1200, PWM resolution to 8 that duty cycle is 256
+    pinMode(left_ctrl,OUTPUT); //set control pins of the left motor to OUTPUT
+    ledcAttach(left_pwm, 1200, 8); //Set the frequency of left_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
+    pinMode(right_ctrl,OUTPUT);//set direction control pins of the right motor to OUTPUT..
+    ledcAttach(right_pwm, 1200, 8); //Set the frequency of right_pwm pin to 1200, PWM resolution to 8 that duty cycle is 256.
 
     pinMode(TRIG_PIN,OUTPUT);//Set TRIG_PIN to OUTPUT.
     pinMode(ECHO_PIN,INPUT);//Set ECHO_PIN to INPUT入.
     
-    ledcSetup(3, 50, 10); // set the frequency of servo channels3 to 50,PWM resolution to 10..
-    ledcAttachPin(4, 3);  //Connect the LEDC channel to the IO port you set
-    ledcWrite(channel_PWM, 77);  //2The 20ms high level is about 1.5ms, which is 1.5/20*1024, and the initial angle of the servo is set to 90°
+    myservo.setPeriodHertz(50);           // standard 50 hz servo
+    myservo.attach(servoPin, 500, 2500);  // attaches the servo on servoPin to the servo object.
+    myservo.write(90);  // the initial angle of the servo is set to 90° .
     delay(300);
 
-    pinMode(PIN_BUZZER, OUTPUT);
-    ledcSetup(CHN, 0, 10); //setup pwm channel
-    ledcAttachPin(PIN_BUZZER, CHN); //attach the led pin to pwm channel
-
+    ledcAttach(buzzerPin, 2000, 8); // Set up the PWM pin
+    ledcWriteTone(buzzerPin, 0);
+    
     matrix.init(0x70, SDA, SCL);// matrix init
     matrix.clear(); //clear
     matrix.setBrightness(10);
@@ -180,67 +172,67 @@ void loop(void)
     }
     else if(req == "/btn/F")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, speed_L);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, speed_R);
+      digitalWrite(left_ctrl,LOW);
+      ledcWrite(left_pwm, speed_L);
+      digitalWrite(right_ctrl,LOW);
+      ledcWrite(right_pwm, speed_R);
     }
     else if(req == "/btn/B")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(0, (255-speed_L));
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, (255-speed_R));
+      digitalWrite(left_ctrl, HIGH);
+      ledcWrite(left_pwm, (255-speed_L));
+      digitalWrite(right_ctrl, HIGH);
+      ledcWrite(right_pwm, (255-speed_R));
     }
     else if(req == "/btn/L")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, speed_L);
-      digitalWrite(INB, HIGH);
-      ledcWrite(1, (255-speed_R));
+      digitalWrite(left_ctrl, HIGH);
+      ledcWrite(left_pwm, speed_L);
+      digitalWrite(right_ctrl, LOW);
+      ledcWrite(right_pwm, (255-speed_R));
     }
     else if(req == "/btn/R")
     {
-      digitalWrite(INA, HIGH);
-      ledcWrite(0, (255-speed_L));
-      digitalWrite(INB, LOW);
-      ledcWrite(1, speed_R);
+      digitalWrite(left_ctrl, LOW);
+      ledcWrite(left_pwm, (255-speed_L));
+      digitalWrite(right_ctrl, HIGH);
+      ledcWrite(right_pwm, speed_R);
     }
     else if(req == "/btn/S")
     {
-      digitalWrite(INA, LOW);
-      ledcWrite(0, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(1, 0);
+      digitalWrite(left_ctrl, LOW);
+      ledcWrite(left_pwm, 0);
+      digitalWrite(right_ctrl, LOW);
+      ledcWrite(right_pwm, 0);
     }
     else if(req == "/btn/a")
     {
-      ledcWriteTone(CHN, 262);
+      ledcWriteTone(buzzerPin, 262);
     }
     else if(req == "/btn/b")
     {
-      ledcWriteTone(CHN, 0);
+      ledcWriteTone(buzzerPin, 0);
     }
     else if(req == "/btn/c")
     {
-      ledcWriteTone(CHN, 262);
+      ledcWriteTone(buzzerPin, 262);
       delay(200);
-      ledcWriteTone(CHN, 294);
+      ledcWriteTone(buzzerPin, 294);
       delay(200);
-      ledcWriteTone(CHN, 330);
+      ledcWriteTone(buzzerPin, 330);
       delay(200);
-      ledcWriteTone(CHN, 349);
+      ledcWriteTone(buzzerPin, 349);
       delay(200);
-      ledcWriteTone(CHN, 392);
+      ledcWriteTone(buzzerPin, 392);
       delay(200);
-      ledcWriteTone(CHN, 440);
+      ledcWriteTone(buzzerPin, 440);
       delay(200);
-      ledcWriteTone(CHN, 494);
+      ledcWriteTone(buzzerPin, 494);
       delay(200);
     }
     else if(req == "/btn/d")
     {
-      ledcWriteTone(CHN, 0);
+      ledcWriteTone(buzzerPin, 0);
     }
     else if(req == "/btn/e")
     {
@@ -352,7 +344,7 @@ void loop(void)
     {
       Serial.write('l');
       client.println(F("l"));
-      car_follow();
+      //car_follow();
     }
     else if(req == "/btn/m")
     {
@@ -424,45 +416,6 @@ void loop(void)
     //client.stop();
     //Serial.println("Done with client");
 
-}
-
-void car_follow()
-{
-    distance = checkdistance();//Get the distance measured by the ultrasonic sensor
-    Serial.print(distance);//Send a pulse, calculate the distance in centimeters and print the result.
-    Serial.println("cm");
-    if(distance<8)//if distance is less than 8
-    {
-      //Go back
-      digitalWrite(INA, 0);
-      ledcWrite(1, 100);
-      digitalWrite(INB, 0);
-      ledcWrite(2, 100);
-    }
-    else if((distance>=8)&&(distance<13))//if 8≤distance<13.
-    {
-      //stop
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 0);
-    }
-    else if((distance>=13)&&(distance<35))//if 13≤distance<35.
-    {
-      //follow
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 100);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 100);
-    }
-    else//
-    {
-      digitalWrite(INA, LOW);
-      ledcWrite(1, 0);
-      digitalWrite(INB, LOW);
-      ledcWrite(2, 0);
-    }
-  
 }
 
 float checkdistance() {

@@ -1,6 +1,6 @@
 //**********************************************************************************
 /*
-Project_13_IR_Remote_Control
+Project 13 IR Remote Control
 */
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
@@ -25,5 +25,5 @@ void loop() {
     irrecv.resume();                      // Release the IRremote. Receive the next value
   }
   delay(100);
-}
+} 
 //**********************************************************************************

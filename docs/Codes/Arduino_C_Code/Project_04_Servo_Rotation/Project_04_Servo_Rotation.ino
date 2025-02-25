@@ -1,6 +1,6 @@
 //*************************************************************************************
 /*
-Project 04.2 Servo Rotation
+Project 04 Servo Rotation
 the servo will rotate from 0 degrees to 180 degrees and then reverse 
 the direction to make it rotate from 180 degrees to 0 degrees and 
 repeat these actions in an endless loop.
