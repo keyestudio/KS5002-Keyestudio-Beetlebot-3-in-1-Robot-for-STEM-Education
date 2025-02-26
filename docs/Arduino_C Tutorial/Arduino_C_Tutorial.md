@@ -122,19 +122,12 @@ ESP32 board needs to be installed in Arduino IDE before using.
 
 ![Img](./media/img-20241129110938.png)
 
-2\. Copy and paste the below link into Additional boards manager URLs and click **OK**.
-
-```c++
-http://arduino.esp8266.com/stable/package_esp8266com_index.json
-https://arduino.me/packages/esp32.json
-https://arduino.me/packages/esp8266.json
-https://dl.espressif.com/dl/package_esp32_index.json
-```
+2\. Copy and paste the link：https://espressif.github.io/arduino-esp32/package_esp32_index.json into Additional boards manager URLs and click **OK**.
 
 ![Img](./media/img-20241129111458.png)
 
-3\. Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">3.1.1</span>** to “**Install**”. 
-(**<span style="color: rgb(255, 76, 65);">⚠️Note that here we adopt 3.1.1 version of the ESP32. Installation may fail if you choose another versions.</span>**)
+3\. Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">3.1.3</span>** to “**Install**”. 
+(**<span style="color: rgb(255, 76, 65);">⚠️Note that here we adopt 3.1.3 version of the ESP32. Installation may fail if you choose another versions.</span>**)
 
 ![Img](./media/img-20241129112805.png)
 
@@ -1675,17 +1668,14 @@ The IR receiver on the PCB board is controlled by GPIO19 of the ESP32 board.
 ![Img](./media/img-20250225155452.png)
 
 
-<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version **3.1.1** or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **2.0.17**. After completing this example and the lesson 14 example, upgrade back to the latest version. </span>
+<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version **3.1.3** or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **2.0.17**. After completing this example and the lesson 14 example, upgrade back to the latest version. </span>
 
-Copy and paste the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json**  in Additional boards manager URLs and click **OK**.
-
-![Img](./media/img-20250225154317.png)
 
 Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">2.0.17</span>** to “**Install**”. 
 
 ![Img](./media/img-20250225154625.png)
 
-<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the lesson 14 example, upgrade back to the latest version.</span>
+<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the example from lesson 14 below, upgrade back to the latest version(**3.1.3**).</span>
 
 ```c
 /*
@@ -1759,17 +1749,13 @@ In the above experiment, we have learned about the knowledge of the 8*8 dot matr
 ![Img](./media/img-20250225155452.png)
 
 
-<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version **3.1.1** or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **2.0.17**. After completing this example and the lesson 13 example, upgrade back to the latest version. </span>
-
-Copy and paste the link：**https://espressif.github.io/arduino-esp32/package_esp32_index.json** in Additional boards manager URLs and click **OK**.
-
-![Img](./media/img-20250225154317.png)
+<span style="color: rgb(255, 76, 65); background: rgb(255, 251, 0);">⚠️Warning:  If you are using an ESP32 development board version **3.1.3** or higher, you may encounter errors during the compilation process. This issue is usually because the newer versions of the board no longer support the `IRremoteESP8266` library. To properly run this example, it is recommended to downgrade your ESP32 board’s firmware version to **2.0.17**. After completing this example and the lesson 13 example, upgrade back to the latest version. </span>
 
 Select the icon of board manager to search for “**ESP32**” and click version **<span style="color: rgb(255, 76, 65);">2.0.17</span>** to “**Install**”. 
 
 ![Img](./media/img-20250225154625.png)
 
-<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the lesson 13 example, upgrade back to the latest version.</span>
+<span style="color: rgb(255, 169, 0);">**⚠️ATTENTION**: After completing this example and the example from lesson 13 above, upgrade back to the latest version(**3.1.3**).</span>
 
 ```c
 /*
