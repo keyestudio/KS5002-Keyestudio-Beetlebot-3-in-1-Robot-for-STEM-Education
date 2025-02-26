@@ -2,28 +2,24 @@
 /*
 Project 13 IR Remote Control
 */
-#include <Arduino.h>
-#include <IRremoteESP8266.h>
-#include <IRrecv.h>
-#include <IRutils.h>
+#include <IRremote.hpp>
 
-const uint16_t recvPin = 19;  // set ir receiver to pin IO19
-IRrecv irrecv(recvPin);      // Creates a class object for the receiver
-decode_results results;       // Create the decoded result class object
+#define IR_RECEIVE_PIN   19   // Defines infrared receiver module pins
+IRrecv irrecv(IR_RECEIVE_PIN);     // Creates a class object that receives the class
+decode_results results;     // Create a decoded result class object
 
 void setup() {
-  Serial.begin(115200);       // set baud rate to 115200
-  irrecv.enableIRIn();        // start receiver
-  Serial.print("IRrecvDemo is now running and waiting for IR message on Pin ");
-  Serial.println(recvPin);   //Print the signal received by the infrared receiving pin
+  Serial.begin(115200);       // Example Initialize the serial port and set the baud rate to 115200
+  IrReceiver.begin(IR_RECEIVE_PIN, ENABLE_LED_FEEDBACK);  // Start receiver
 }
 
 void loop() {
-  if (irrecv.decode(&results)) {          // Wait for decoding
-    serialPrintUint64(results.value, HEX);// Print out the decoded result
-    Serial.println("");
-    irrecv.resume();                      // Release the IRremote. Receive the next value
+  if (IrReceiver.decode()) {
+      Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);  // Print raw data
+      //IrReceiver.printIRResultShort(&Serial); // Print the complete received data in one line
+      //IrReceiver.printIRSendUsage(&Serial);  // Print the statement needed to send this data
+      IrReceiver.resume(); // Enable receiving the next value
   }
   delay(100);
-} 
+}
 //**********************************************************************************
